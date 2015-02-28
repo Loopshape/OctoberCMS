@@ -9,5 +9,6 @@ public/piwik
 app/config
 
 loopcode/config
+loopcode/.tmp
 
 themes/loopshape/bower_components
