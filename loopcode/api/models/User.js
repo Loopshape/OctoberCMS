@@ -1,76 +1,82 @@
 /**
- * User.js
+ * User
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/#!documentation/models
+ * @module   :: Model
+ * @description :: A short summary of how this model works and what it represents.
+ *
  */
+var bcrypt = require('bcrypt');
 
 module.exports =
 {
 
-    schema : 'true',
+    schema : true,
 
+    autoPK : false,
+    autoCreatedAt : false,
+    autoUpdatedAt : false,
+
+    table : 'user',
     attributes :
     {
-
-        /*
-         * LOCAL STRATEGY
-         */
         id :
         {
             type : 'integer',
+            index : true,
+            required : true,
             unique : true
         },
-        
         username :
         {
             type : 'string',
-            unique : true,
-            required : true
-        },
-
-        password :
-        {
-            type : 'string',
-            required : true,
-            minLength : 4
-        },
-
-        /*
-         * FACEBOOK
-         */
-        facebookId :
-        {
-            type : 'string',
             required : true,
             unique : true
         },
-
-        /*
-         beforeCreate : function(attrs, next)
-         {
-         var bcrypt = require('bcrypt');
-
-         bcrypt.genSalt(10, function(err, salt)
-         {
-         if (err)
-         return next(err);
-
-         bcrypt.hash(attrs.password, salt, function(err, hash)
-         {
-         if (err)
-         return next(err);
-
-         attrs.password = hash;
-         next();
-         });
-         });
-         },
-         */
-
+        password :
+        {
+            type : 'string',
+            minLength : 4,
+            required : true
+        },
+        email :
+        {
+            type : 'email',
+            required : true,
+            unique : true
+        },
+        toJSON : function()
+        {
+            var obj = this.toObject();
+            delete obj.password;
+            return obj;
+        }
     },
-    
-    autoPK: false
 
+    // Lifecycle Callbacks
+    /*
+     beforeCreate : function(values, next)
+     {
+     next();
+     },
+     */
+    beforeCreate : function(user, cb)
+    {
+        bcrypt.genSalt(10, function(err, salt)
+        {
+            bcrypt.hash(user.password, salt, function(err, hash)
+            {
+                if (err)
+                {
+                    console.log(err);
+                    cb(err);
+                }
+                else
+                {
+                    user.password = hash;
+                    console.log(hash);
+                    cb(null, user);
+                }
+            });
+        });
+    },
 };
-

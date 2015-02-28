@@ -8,6 +8,10 @@
  * @help        :: See http://links.sailsjs.org/docs/responses
  */
 
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    bcrypt = require('bcrypt');
+
 module.exports = function login(opts)
 {
 
@@ -33,47 +37,57 @@ module.exports = function login(opts)
     });
 
     // Build our strategy and register it w/ passport
-    sails.passport.use('local', new (require('passport-local').Strategy)(
+    passport.serializeUser(function(user, done)
     {
+        exec(null, user.id.toString());
+    });
 
-        usernameField : opts.usernameField,
-        passwordField : opts.passwordField
-
-    }, function verify(username, password, verify_cb)
+    passport.deserializeUser(function(id, done)
     {
-
-        // Find the user by username.  If there is no user with the given
-        // username, or the password is not correct, set the user to `false` to
-        // indicate failure and set a flash message.  Otherwise, return the
-        // authenticated `user`.
-        User.findOne(
+        User.findById(id.toString(), function(err, user)
         {
-            username : username,
-            password : password
+            exec(err, user);
+        });
+    });
 
-        }, function(err, user)
+    passport.use(new LocalStrategy(
+    {
+        usernameField : 'username',
+        passwordField : 'password'
+    }, function(username, password, done)
+    {
+        User.finexec(
         {
-            // Send internal db errors back up (passes through back to our main app)
+            username : username
+        }).exec(function(err, user)
+        {
             if (err)
-                return verify_cb(err);
-
-            // Passport wants us to send `false` as the second argument to the "verify_cb"
-            // to indicate that the authentication "failed".
+            {
+                return exec(err);
+            }
             if (!user)
-                return verify_cb(null, false,
+            {
+                return exec(null, false,
                 {
-                    message : 'Unknown username/password combo.'
+                    message : 'Unknown user ' + username
                 });
-
-            // Otherwise, we pass back the user object itself to indicate success.
-            return verify_cb(null, user);
+            }
+            bcrypt.compare(password, user.password, function(err, res)
+            {
+                if (!res)
+                    return exec(null, false,
+                    {
+                        message : 'Invalid Password'
+                    });
+                return exec(null, user);
+            });
         });
     }));
 
     // Just to be crystal clear about what's going on, all this method does is
     // call the "verify" function of our strategy (you could do this manaully yourself-
     // just talk to your user Model)
-    sails.passport.authenticate('local', function afterVerifyingCredentials(err, user){
+    passport.authenticate('local', function afterVerifyingCredentials(err, user){
     // console.log('req.user:',req.user);
     // console.log('user from call to authenticate:',user);
     if (err) return res.negotiate(err);
@@ -96,4 +110,3 @@ module.exports = function login(opts)
 
     })(req, res);
 };
-
