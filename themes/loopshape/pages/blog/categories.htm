@@ -1,0 +1,39 @@
+title = "Blogkategorien"
+url = "/blog/kategorien/:slug/:page?"
+layout = "Blog"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "blog/summary"
+hide_crumb = "0"
+crumb_title = "Kategorien"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+
+[blogCategories]
+slug = ":blogcat"
+displayEmpty = "0"
+categoryPage = "blog/summary"
+==
+<section id="colMain">
+
+    <div class="headline">
+        <div class="large-6 columns">
+            <h2>// <a href="/blog/zusammenfassung" class="noDeco">TECHBLOG</a></h2>
+        </div>
+        {% partial 'module/weathercast' %}
+        <div id="network" class="large-3 columns">
+            {% component 'plusOne' %}<br />
+            {% component 'fblike' %}
+        </div>
+    </div>
+        
+    <section id="blog" class="large-12 columns">
+        
+        <div class="spacerLine"></div>
+        
+        {% component "blogCategories" %}
+        
+    </section>
+    
+</section>

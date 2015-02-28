@@ -1,0 +1,20 @@
+1.0.1:
+    - First version
+    - create_todo_table.php
+    - create_projects_table.php
+1.0.2:
+    - Bug fixes (no records message and progress bar value)
+1.0.3:
+    - Progress bar fixed
+    - Removed sidebar
+    - Added rules
+    - Added progress bars
+    - Added required asterisk 
+1.0.4:
+    - Purgeable assign field fixed
+    - Table bug fix
+1.0.5:
+    - Bug fixes, improved ui
+    - rename_progress_field.php
+1.0.6:
+    - Bug fix with progress column

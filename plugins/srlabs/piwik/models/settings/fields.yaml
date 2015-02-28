@@ -1,0 +1,13 @@
+fields:
+  tracker_domain:
+    span: left
+    label: Tracking Site Domain
+    commentAbove: The URL for your Piwik Installation. Do not include 'http://' or 'https://'.
+    required: true
+
+  site_id:
+    span: left
+    label: Site Id
+    type: number
+    commentAbove: The site ID for this website
+    required: true

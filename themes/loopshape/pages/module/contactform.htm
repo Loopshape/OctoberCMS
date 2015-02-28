@@ -1,0 +1,67 @@
+title = "Kontaktformular"
+url = "/kontaktformular"
+layout = "Contact"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "home"
+hide_crumb = "0"
+crumb_title = "Kontakt"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+
+[mailTemplate]
+redirectURL = "module/contactform"
+templateName = "2"
+responseTemplate = "octodevel.octomail::mail.autoresponse"
+bodyField = "body"
+responseFieldName = "name"
+responseFieldEmail = "email"
+==
+<section id="colMain" class="large-12 columns">
+
+    <div class="inner">
+    
+        <div class="headline">
+            <div class="large-6 columns">
+                <h2>// <a href="/kontaktformular" class="noDeco">KONTAKTFORMULAR</a></h2>
+            </div>
+        </div>
+        
+        <div class="spacerLine"></div>
+    
+        <div class="colWrapper alignLeft">
+        
+            <div class="large-8 columns marginBottom">
+            
+                <div class="inner areaColorBlockContent areaColorBlockTrans globalPadding globalRadius globalShadow">
+                    {% component 'mailTemplate' %}
+                </div>
+            
+            </div>
+            
+            <div class="large-4 columns marginBottom">
+            
+                <div class="inner areaColorBlockContent globalPadding globalRadius globalShadow">
+                
+                    <p>Diese Nachricht wird beim Versenden an folgende Adresse weitergeleitet:</p>
+                    <p>Herr 
+                        <a href="/zur-person" title="" class="setLink"><strong>Arjuna Noorsanto</strong></a><br />
+                        Holsteiner Chaussee 23<br />
+                        22523 Hamburg / DE<br />
+                        <br />
+                        <span class="cf"></span>Mobile: +49176.95749832<br />
+                        <span class="cf"></span>E-Mail: <a href="mailto:awebgo.net@gmail.com">awebgo.net (at) gmail [dot] com</a><br />
+                        <br />
+                        Web: <a href="http://loop.arcturus.uberspace.de/">loop.arcturus.uberspace.de</a>
+                    </p>
+                
+                </div>    
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</section>

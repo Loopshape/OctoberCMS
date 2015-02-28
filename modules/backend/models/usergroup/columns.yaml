@@ -1,0 +1,12 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: backend::lang.user.group.name_field
+        searchable: yes
+
+    description:
+        label: backend::lang.user.group.description_field
+        searchable: yes

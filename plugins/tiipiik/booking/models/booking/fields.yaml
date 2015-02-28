@@ -1,0 +1,106 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    room_id:
+        label: tiipiik.booking::lang.booking.backend.room_id_label
+        type: dropdown
+        options: getRoomsOptions
+        placeholder: tiipiik.booking::lang.booking.backend.select_one
+        
+    validated:
+        label: tiipiik.booking::lang.booking.validated
+        type: switch
+        default: 0
+        span: auto
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+        
+secondaryTabs:
+    stretch: true
+    fields:
+        full_name:
+            tab: tiipiik.booking::lang.booking.backend.visitor.tab_title
+            label: tiipiik.booking::lang.booking.backend.visitor.full_name
+            span: left
+            size: tiny
+            cssClass: col-sm-4
+            
+        email:
+            tab: tiipiik.booking::lang.booking.backend.visitor.tab_title
+            label: tiipiik.booking::lang.booking.backend.visitor.email
+            span: right
+            size: tiny
+            cssClass: col-sm-4
+            
+        phone:
+            tab: tiipiik.booking::lang.booking.backend.visitor.tab_title
+            label: tiipiik.booking::lang.booking.backend.visitor.phone
+            span: left
+            size: tiny
+            cssClass: col-sm-4
+            
+        persons:
+            tab: tiipiik.booking::lang.booking.backend.visitor.tab_title
+            label: tiipiik.booking::lang.booking.backend.visitor.persons
+            span: left
+            cssClass: col-sm-4
+            
+        rooms:
+            tab: tiipiik.booking::lang.booking.backend.visitor.tab_title
+            label: tiipiik.booking::lang.booking.backend.visitor.rooms
+            span: right
+            cssClass: col-sm-4
+                
+        comment:
+            tab: tiipiik.booking::lang.booking.backend.visitor.tab_title
+            label: tiipiik.booking::lang.booking.backend.visitor.comment
+            type: textarea
+            cssClass: col-sm-12
+        
+        arrival:
+            tab: tiipiik.booking::lang.booking.backend.stay.tab_title
+            label: tiipiik.booking::lang.booking.backend.stay.checkin
+            type: datepicker
+            mode: date
+            span: left
+            cssClass: col-sm-4
+            
+        departure:
+            tab: tiipiik.booking::lang.booking.backend.stay.tab_title
+            label: tiipiik.booking::lang.booking.backend.stay.checkout
+            type: datepicker
+            mode: date
+            span: right
+            cssClass: col-sm-4
+            
+        total_nights:
+            tab: tiipiik.booking::lang.booking.backend.stay.tab_title
+            label: tiipiik.booking::lang.booking.backend.stay.nights
+            span: left
+            cssClass: col-sm-4
+            
+        amount:
+            tab: tiipiik.booking::lang.booking.backend.pay_plan.tab_title
+            label: tiipiik.booking::lang.booking.amount
+            span: left
+            cssClass: col-sm-4
+            
+        currency:
+            tab: tiipiik.booking::lang.booking.backend.pay_plan.tab_title
+            label: tiipiik.booking::lang.booking.currency
+            span: right
+            cssClass: col-sm-4
+            
+        pay_plan_id:
+            tab: tiipiik.booking::lang.booking.backend.pay_plan.tab_title
+            label: tiipiik.booking::lang.booking.backend.pay_plan.options_title
+            type: dropdown
+            options: getPayPlanOptions
+            placeholder: tiipiik.booking::lang.booking.backend.select_one
+            span: left
+            cssClass: col-sm-4

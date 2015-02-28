@@ -1,0 +1,125 @@
+title = "Blogbeitrag"
+url = "/blog/beitrag/:slug?/:page?"
+layout = "Space"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "blog/summary"
+hide_crumb = "0"
+crumb_title = "Blogbeitrag"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/summary"
+==
+<section id="colMain" class="large-12 columns">
+
+    <div class="inner">
+    
+        <div class="headline">
+        
+            <div class="large-6 columns">
+                <h2>// <a href="/blog/zusammenfassung" class="noDeco">TECHBLOG</a></h2>
+            </div>
+            
+            {% partial 'module/weathercast' %}
+            
+            <div id="network" class="large-4 columns">
+                {% component 'plusOne' %}<br />
+                {% component 'fblike' %}
+            </div>
+            
+        </div>
+        
+        <div class="spacerLine"></div>
+    
+        <div class="colWrapper alignLeft marginBottom">
+            
+            <section id="blog" class="large-12 columns">
+                
+                <div class="inner">
+                
+                    <div class="spacerLine"></div>
+        
+                    <h3 class="h2">{{ post.title }}</h3>
+                    
+                    {% component "blogPost" %}
+                    
+                    <br />
+                    <br />
+                    
+                    <div id="blockComment">
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                            var disqus_shortname = 'loopshapeportfolio';
+                            (function() {
+                                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    </div>
+                    <div class="cf"></div>
+                    
+                </div>
+                
+            </section>
+            
+        </div>
+        
+    </div>
+    
+</section>
+
+<style rel="stylesheet">
+
+#colMain #blog {
+    width: 100% !important;
+}
+
+html body #layer #blog div.inner {
+-webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+    background: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    background-color: rgba(255,255,255,0.9) !important;
+    text-align: left !important;
+}
+
+html body #layer #blog div.inner div.content {
+    margin-top: 30px !important;
+-webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+    background: none !important;
+}
+
+html body #layer #blockComment {
+    background-color: rgba(0,0,0,0.075) !important;
+    padding: 15px !important;
+-webkit-border-radius: 6px !important;
+border-radius: 6px !important;
+    opacity: 1 !important;
+}
+
+html body #layer #blog pre,
+html body #layer #blog pre * {
+    position: relative !important;
+    z-index: 9999999 !important;
+    font-size: 1em !important;
+-webkit-touch-callout: text !important;
+-webkit-user-select: text !important;
+-khtml-user-select: text !important;
+-moz-user-select: text !important;
+-ms-user-select: text !important;
+user-select: text !important;
+}
+
+html body #layer #pageContent {
+    margin: -30px 0 -50% !important;
+}
+    
+</style>

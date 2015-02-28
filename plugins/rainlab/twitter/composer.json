@@ -1,0 +1,20 @@
+{
+    "name": "rainlab/twitter",
+    "description": "Twitter integration plugin for OctoberCMS",
+    "homepage": "http://octobercms.com",
+    "keywords": ["october", "cms", "rainlab", "twitter"],
+    "authors": [
+        {
+            "name": "Alexey Bobkov",
+            "email": "aleksey.bobkov@gmail.com"
+        },
+        {
+            "name": "Samuel Georges",
+            "email": "daftspunky@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "themattharris/tmhoauth": "0.8.3"
+    }
+}

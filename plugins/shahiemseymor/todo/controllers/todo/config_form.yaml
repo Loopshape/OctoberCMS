@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Task
+form: @/plugins/shahiemseymor/todo/models/todo/fields.yaml
+modelClass: ShahiemSeymor\Todo\Models\Todo
+defaultRedirect: shahiemseymor/todo/todo
+
+create:
+    redirect: shahiemseymor/todo/todo/update/:id
+    redirectClose: shahiemseymor/todo/todo
+
+update:
+    redirect: shahiemseymor/todo/todo
+    redirectClose: shahiemseymor/todo/todo

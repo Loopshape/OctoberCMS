@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: octodevel.octomail::lang.controllers.recipients.config_form.name
+form: @/plugins/octodevel/octomail/models/recipient/fields.yaml
+modelClass: OctoDevel\OctoMail\Models\Recipient
+defaultRedirect: octodevel/octomail/recipients
+
+create:
+    redirect: octodevel/octomail/recipients/update/:id
+    redirectClose: octodevel/octomail/recipients
+
+update:
+    redirect: octodevel/octomail/recipients
+    redirectClose: octodevel/octomail/recipients

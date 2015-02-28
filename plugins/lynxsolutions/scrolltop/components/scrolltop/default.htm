@@ -1,0 +1,124 @@
+<a class="lnxScrollToTop" id="lnxScrollToTop">
+	<i class="lnxScrollToTopArrow" id="lnxScrollToTopArrow"></i>
+</a>
+<script>
+(function(){
+	var mainObject = document.getElementById('lnxScrollToTop');
+	var arrowObject = document.getElementById('lnxScrollToTopArrow'); 
+
+	var op = 0.1;
+	var isVisible = false;
+	var timer;
+	window.onscroll = function (e) {
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		if (scrollTop > 200) {
+			if (!isVisible) {
+				fadeIn(mainObject);
+				isVisible = true;
+			}
+		} else {
+			if (isVisible) {
+				fadeOut(mainObject);
+				isVisible = false;
+			}
+		}
+	};
+
+	mainObject.onclick = clicked;
+	function clicked (event) {
+		var element = (document.documentElement.scrollTop) ? document.documentElement : document.body;
+		scrollTo(element, 0, {{ scrollToTop.speed }});
+		event.preventDefault();
+	}
+
+	function scrollTo(element, to, duration) {
+		var start = element.scrollTop,
+			change = to - start,
+			currentTime = 0,
+			increment = 20;
+			
+		var animateScroll = function(){        
+			currentTime += increment;
+			var val = Math.easeInOutQuad(currentTime, start, change, duration);
+			element.scrollTop = val;
+			if(currentTime < duration) {
+				setTimeout(animateScroll, increment);
+			}
+		};
+		animateScroll();
+	}
+
+	function fadeOut(element) {
+		clearInterval(timer)
+		timer = setInterval(function () {
+			if (op <= 0.1){
+				clearInterval(timer);
+				op = 0.1;
+				element.style.display = 'none';
+			}
+			element.style.opacity = op.toFixed(2);
+			element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+			op -= op * 0.2;
+		}, 25);
+	}
+
+	function fadeIn(element) {
+		element.style.display = 'block';
+		clearInterval(timer)
+		timer = setInterval(function () {
+			if (op >= 1){
+				clearInterval(timer);
+				op = 1;
+			}
+			element.style.opacity = op.toFixed(2);
+			element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+			op += op * 0.2;
+		}, 25);
+	}
+
+	//t = current time
+	//b = start value
+	//c = change in value
+	//d = duration
+	Math.easeInOutQuad = function (t, b, c, d) {
+		t /= d/2;
+		if (t < 1) return c/2*t*t + b;
+		t--;
+		return -c/2 * (t*(t-2) - 1) + b;
+	};
+})();
+</script>
+{# SIZE SETTINGS #}
+{% set arrowFontSize = (scrollToTop.size/3*2)|round(2, 'floor') %}
+
+{# POSITION SETTINGS #}
+{% if scrollToTop.position == 'bottomright' %}
+	{% set vertical = 'bottom' %}{% set horizontal = 'right' %}
+{% elseif scrollToTop.position == 'bottomleft' %}
+	{% set vertical = 'bottom' %}{% set horizontal = 'left' %}
+{% elseif scrollToTop.position == 'topright' %}
+	{% set vertical = 'top' %}{% set horizontal = 'right' %}
+{% elseif scrollToTop.position == 'topleft' %}
+	{% set vertical = 'top' %}{% set horizontal = 'left' %}
+{% endif %}	
+
+<style>
+	.lnxScrollToTop {
+		background: {{ scrollToTop.backgroundColor }};
+		width: {{ scrollToTop.size }}px;
+		height: {{ scrollToTop.size }}px;
+		line-height: {{ scrollToTop.size }}px;
+		{{ vertical }}: {{ scrollToTop.verticalUnits }}{{ scrollToTop.unit }};
+		{{ horizontal }}: {{ scrollToTop.horizontalUnits }}{{ scrollToTop.unit }};
+	}
+	.lnxScrollToTop:hover {
+		background: {{ scrollToTop.backgroundHoverColor }};
+	}
+	.lnxScrollToTopArrow {
+		color: {{ scrollToTop.arrowColor }};
+		font-size: {{ arrowFontSize }}px;
+	}
+	.lnxScrollToTop:hover .lnxScrollToTopArrow {
+		color: {{ scrollToTop.arrowHoverColor }};
+	}
+</style>

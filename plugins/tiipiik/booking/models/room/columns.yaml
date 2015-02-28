@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        invisible: true
+        
+    name:
+        label: tiipiik.booking::lang.room.backend.columns.name
+        
+    is_available:
+        label: tiipiik.booking::lang.room.backend.columns.available
+        type: switch

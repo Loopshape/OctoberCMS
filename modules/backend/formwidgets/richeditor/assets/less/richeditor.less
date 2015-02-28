@@ -1,0 +1,148 @@
+@import "../../../../assets/less/core/boot.less";
+
+@richeditor-toolbar-size: 30px;
+@richeditor-zindex: 300;
+@richeditor-gutter: 20px;
+
+@import "_redactor.less";
+@import "_figures.less";
+@import "_shared.less";
+
+.field-flush .field-richeditor {
+    &, &.editor-focus {
+        border: none;
+    }
+}
+
+.field-richeditor {
+    border: 1px solid @color-form-field-border;
+    &, .redactor-box {
+        .border-radius(5px);
+    }
+    .redactor-toolbar {
+        .border-top-radius(3px);
+    }
+
+    &.editor-focus {
+        border-color: @color-form-field-border-focus;
+    }
+
+    &.size-tiny .redactor-editor     { height: (@size-tiny - @richeditor-toolbar-size) !important; }
+    &.size-small .redactor-editor    { height: (@size-small - @richeditor-toolbar-size) !important; }
+    &.size-large .redactor-editor    { height: (@size-large - @richeditor-toolbar-size) !important; }
+    &.size-huge .redactor-editor     { height: (@size-huge - @richeditor-toolbar-size) !important; }
+    &.size-giant .redactor-editor    { height: (@size-giant - @richeditor-toolbar-size) !important; }
+}
+
+//
+// Override redactor defaults
+//
+
+.redactor-box {
+    margin-bottom: 0;
+
+    & iframe {
+        border: none; // Oc
+    }
+}
+
+.redactor-box-fullscreen {
+    z-index: @richeditor-zindex + 115 !important;
+}
+.redactor-toolbar,
+.redactor-dropdown {
+    z-index: @richeditor-zindex + 110 !important;
+}
+#redactor-modal-overlay,
+#redactor-modal-box,
+#redactor-modal {
+    z-index: @richeditor-zindex + 120 !important;
+}
+
+.redactor-toolbar {
+    background: @color-richeditor-toolbar;
+    .box-shadow(none);
+
+    & li.redactor-btn-right {
+        float: right;
+        margin-right: 2px;
+    }
+
+    & li a {
+        color: @color-richeditor-toolbar-btn-color;
+        font-size: 14px;
+        width: 20px;
+        line-height: 20px;
+
+        .user-select(none);
+
+        &:hover {
+            background-color: @color-richeditor-toolbar-btn-bg-hover;
+            color: @color-richeditor-toolbar-btn-color-hover;
+        }
+
+        &:active,
+        &.redactor-act {
+            background-color: @color-richeditor-toolbar-btn-bg-active;
+            color: @color-richeditor-toolbar-btn-color-hover;
+        }
+    }
+}
+
+.redactor-editor {
+    border: none;
+}
+
+body .redactor-box-fullscreen {
+    background: @color-body-bg;
+    overflow-y: scroll !important;
+    width: 100%!important;
+    .redactor-editor {
+        background: #fff;
+        max-width: 960px;
+        margin: @richeditor-gutter auto !important;
+        padding: @richeditor-gutter;
+    }
+}
+
+//
+// Stretch
+//
+
+.field-richeditor.stretch {
+    .redactor-box {
+        display: block;
+        position: relative;
+        height: 100% !important;
+        width: 100% !important;
+        .border-radius(0)!important;
+        overflow: hidden;
+
+        .redactor-toolbar {
+            .border-radius(0)!important;
+
+            display: block;
+            border-bottom: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .redactor-editor, textarea {
+            width: 100% !important;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            height: auto !important;
+        }
+
+        .redactor-editor {
+            height: auto !important;
+        }
+
+        textarea {
+            padding: 10px;
+        }
+    }
+}

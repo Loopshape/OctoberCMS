@@ -1,0 +1,28 @@
+1.0.1:
+    - First version of Forum
+    - create_channels_table.php
+    - create_posts_table.php
+    - create_topics_table.php
+    - create_members_table.php
+    - seed_all_tables.php
+1.0.2:
+    - Add unread flags to topics
+    - create_topic_watches_table.php
+1.0.3:
+    - Users can now be made moderators or be banned
+    - members_add_mod_and_ban.php
+1.0.4:
+    - Channels can now be hidden or moderated
+    - channels_add_hidden_and_moderated.php
+1.0.5:
+    - Introduced topic and channel embedding
+    - add_embed_code.php
+1.0.6:
+    - Add unread flags to channels
+    - create_channel_watches_table.php
+1.0.7:
+    - Forum members can now follow topics
+    - create_topic_followers_table.php
+1.0.8: Added Channel name to the Topics component view
+1.0.9: Updated the Settings page
+1.0.10: Users can now report spammers who can be banned by moderators

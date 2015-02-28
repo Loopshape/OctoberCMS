@@ -1,0 +1,33 @@
+<div data-control="toolbar">
+    <div class="btn-group">
+        <a href="<?= Backend::url('octodevel/octomail/templates/create') ?>" class="btn btn-primary oc-icon-plus"><?= e(trans('octodevel.octomail::lang.controllers.default.buttons.new')) ?></a>
+        <button
+            class="btn btn-default oc-icon-trash-o"
+            disabled="disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('.control-list').listWidget('getChecked')
+            })"
+            data-request="onDelete"
+            data-request-confirm="<?= e(trans('octodevel.octomail::lang.controllers.default.confirm.selected_delete')) ?>"
+            data-trigger-type="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+            <?= e(trans('octodevel.octomail::lang.controllers.default.buttons.delete')) ?>
+        </button>
+        <button
+            class="btn btn-default oc-icon-clipboard"
+            disabled="disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('.control-list').listWidget('getChecked')
+            })"
+            data-request="onDuplicate"
+            data-trigger-type="enable"
+
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+            <?= e(trans('octodevel.octomail::lang.controllers.default.buttons.duplicate')) ?>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+# ===================================
+#  Field Definitions
+# ===================================
+tabs:
+  fields:
+    maintenance:
+      tab: General
+      label: Maintenance mode
+      type: switch
+      commentAbove: Only non-logged in users can see the maintenance page.
+
+    title:
+      tab: General
+      span: big
+      label: Title
+      required: true
+
+    description:
+      tab: General
+      span: big
+      label: Content
+      type: richeditor
+      require: true
+
+    content:
+      type: partial
+      tab:  General
+      path: @/plugins/shahiemseymor/maintenance/models/settings/_url.htm
+
+    logo:
+        tab: Images
+        span: left
+        type: fileupload
+        label: Logo
+        commentAbove: Upload a custom logo to use on the maintenance page.
+        options:
+          mode: image
+          image-width: 300
+          image-height: 200
+
+    background_image:
+      tab: Images
+      span: right
+      type: fileupload
+      label: Upload a background image
+      commentAbove: Upload a bacground image to use on the maintenance page.
+      options:
+        mode: image
+        image-width: 300
+        image-height: 200
+
+    enable_bgimage:
+      tab: Images
+      span: right
+      type: checkbox
+      label:  Enable image background
+
+      background_repeat:
+      tab: Images
+      span: right
+      type: dropdown
+      label: Background repeat
+      options:
+        repeat: repeat
+        repeat-x: repeat-x
+        repeat-y: repeat-y
+        no-repeat: no-repeat
+
+    background_fixed:
+      tab: Images
+      span: right
+      type: checkbox
+      label: Fixed
+
+    background_color:
+      tab: Colors
+      span: left
+      type: colorpicker
+      label: Background color
+
+    text_color:
+      tab: Colors
+      span: left
+      type: colorpicker
+      label: Text color
+
+    css:
+      tab: Styles
+      span: big
+      stretch: true
+      cssClass: no-padding
+      type: codeeditor
+      language: css
+      showGutter: false
+      wrapWords: true
+      fontSize: 13
+      margin: 15
+      label: Custom stylesheet
+      comment: Color Markers: _BGCOLOR Use this code for background color | _TXTCOLOR Use this code for text color    
+
+    enable_ga:
+      tab: Google Analytics
+      span: left
+      type: switch
+      label: Google Analytics  
+
+    tracking_id:
+      tab: Google Analytics
+      span: left
+      type: text
+      label: Tracking ID
+      commentAbove: Your Google Analytics tracking ID
+
+    domain:
+      tab: Google Analytics
+      span: left
+      type: text
+      label: Domain url
+      commentAbove: Your domain url

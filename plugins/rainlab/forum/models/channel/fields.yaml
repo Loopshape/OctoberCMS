@@ -1,0 +1,38 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    parent:
+        label: Parent
+        type: relation
+        nameFrom: title
+        emptyOption: -- No parent --
+
+    title:
+        label: Title
+        span: left
+
+    slug:
+        label: Slug
+        span: right
+        attributes:
+            data-input-preset: 'input[name="Channel[title]"]'
+            data-input-preset-type: slug
+
+    description:
+        label: Description
+        type: textarea
+        size: tiny
+
+    is_moderated:
+        label: Moderated
+        comment: Only moderators can post to this channel.
+        type: checkbox
+        span: auto
+
+    is_hidden:
+        label: Hidden
+        comment: Hide this category from the main category list.
+        type: checkbox
+        span: auto

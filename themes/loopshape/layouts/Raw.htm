@@ -1,0 +1,185 @@
+description = "Raw Template"
+
+[menu mainMenu]
+start = "id-1"
+activeNode = "0"
+listItemClasses = "item"
+primaryClasses = "nav nav-pills"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = "3"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[ScrollTop]
+speedScrollTopLynx = "300"
+sizeScrollLynx = "50"
+positionScrollLynx = "bottomright"
+UnitScrollLynx = "%"
+horizontalUnitsScrollLynx = "2"
+verticalUnitsScrollLynx = "7"
+arrowColorScrollLynx = "#000"
+arrowHoverColorScrollLynx = "#2E2E2E"
+backgroundColorScrollLynx = "#FFF"
+backgroundHoverColorScrollLynx = "#E6E6E6"
+
+[session]
+security = "all"
+
+[plusOne]
+data-href = "{{ :slug }}"
+data-size = "tall"
+data-annotation = "inline"
+data-align = "left"
+data-expandTo = "top"
+data-recommendations = "0"
+lang = "de"
+
+[like fblike]
+data-action = "like"
+data-colorscheme = "light"
+data-href = "{{ :slug }}"
+data-kid-directed-site = "0"
+data-layout = "standard"
+data-show-faces = "0"
+lang = "de"
+
+[followButton twitterFollow]
+user = "Loopshape"
+size = "medium"
+align = "left"
+show-count = "1"
+show-screen-name = "1"
+dnt = "0"
+lang = "de"
+
+[vote]
+poll = "1"
+==
+<!DOCTYPE HTML>
+<html lang="de" ng-app="loopApp" manifest="/public/loopshape.mf">
+    
+    <head>
+    
+        <!-- 
+        
+            LOOPSHAPE Website - Portfolio von Arjuna Noorsanto
+            (c)reated 2015 with OctoberCMS
+            
+            Write eMail: awebgo.net (at) gmail [dot] com
+            
+            http://loop.arcturus.uberspace.de/
+        
+        -->
+    
+        {% partial "assets/meta" %}
+        
+    </head>
+    
+    <body id="space" class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+    
+        <section id="layer">
+        
+            {% partial 'module/cookiebanner' %}
+    
+            <section id="frame">
+            
+                <header id="pageHeader" class="large-12 columns">
+                    {% partial "page/header" %}
+                </header>
+                
+                <nav id="navi" class="large-12 columns areaSticky">
+                    <h1 class="additional">LOOPSHAPE</h1>
+                    {% component "mainMenu" %}
+                    <div id="searchcontrol"><div id='cse' style='width: 100%;'><gcse:searchbox-only></div></div>
+                </nav>
+            
+                <section id="page">
+                    
+                    <section id="pageContent">
+                    
+                        <div id="breadcrumb" class="large-12 columns">
+                            {% component "breadcrumbs" %}
+                        </div>
+                        
+                        <div id="maincol">
+                        
+                            <div class="statusArea">
+                                {{main.title}}
+                            </div>
+                        
+                            {% page %}
+                            
+                            <div class="spacerPlaceholder"></div>
+                            
+                        </div>
+                        
+                        {% component 'ScrollTop' %}
+                        
+                    </section>
+                    
+                </section>
+                
+                <section id="finalArea"></section>
+                
+                <section id="subSection">
+                    {% partial 'subUserInfoBlock' %}
+                </section>
+                
+            </section>
+                
+            <footer id="pageFooter" class="large-12 columns">
+                {% partial 'page/footer' %}
+            </footer>
+            
+        </section>
+        
+        {% partial "assets/scripts" %}
+        
+        <script type="text/javascript">
+        var exports = null;
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+        var u="//loop.arcturus.uberspace.de/public/piwik/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 1]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    
+        google.load('search', '1', {language: 'de', style: google.loader.themes.V2_DEFAULT});
+        google.setOnLoadCallback(function() {
+            var customSearchOptions = {};
+            var orderByOptions = {};
+            orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+            customSearchOptions['enableOrderBy'] = true;
+            customSearchOptions['orderByOptions'] = orderByOptions;
+            var imageSearchOptions = {};
+            imageSearchOptions['layout'] = 'google.search.ImageSearch.LAYOUT_POPUP';
+            customSearchOptions['enableImageSearch'] = true;
+            var customSearchControl = new google.search.CustomSearchControl('018160317516553975009:qjmc6muct-g', customSearchOptions);
+            customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+            customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
+            var options = new google.search.DrawOptions();
+            options.setAutoComplete(true);
+            customSearchControl.draw('cse', options);
+        }, true);
+        
+        var disqus_shortname = 'loopshapeportfolio'; // required: replace example with your forum shortname
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+        
+        <noscript><p><img src="//loop.arcturus.uberspace.de/public/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+            
+    </body>
+    
+</html>

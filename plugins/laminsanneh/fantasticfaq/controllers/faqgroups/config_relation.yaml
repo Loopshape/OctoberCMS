@@ -1,0 +1,4 @@
+questions:
+  label:  Questions
+  list: @/plugins/laminsanneh/fantasticfaq/models/question/columns.yaml
+  form: @/plugins/laminsanneh/fantasticfaq/models/question/fields.yaml

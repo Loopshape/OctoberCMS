@@ -1,0 +1,78 @@
+<?php
+/**
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Anton Samuelsson
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+?>
+<?= Form::open() ?>
+    <input id="button_tracker" type="hidden" name="button_id" value="<?= $button_id ?>" />
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">
+            <?= e(trans('freestream.parallax::lang.controllers.parallax.available_title')) ?>
+        </h4>
+    </div>
+    <div class="modal-body parallax-available">
+        <p>
+            <?= e(trans('freestream.parallax::lang.controllers.parallax.available_description')) ?>
+        </p>
+        <div class="form-group">
+            <ol id="available-pages">
+                <?php foreach ($pages as $name => $title): ?>
+                    <li data-pagename="<?= $name ?>">
+                        <button type="button" class="close" data-dismiss="callout" aria-hidden="true">×</button>
+                        <span class="page-heading">
+                            <?= $title ?>
+                        </span>
+                        <ol></ol>
+                        <?php $buttonId = uniqid() ?>
+                        <div class="btn btn-primary oc-icon-plus" id="<?php echo $buttonId ?>" data-control="popup" data-handler="onOpenAvailablePages" data-request-data="button_id: '<?php echo $buttonId ?>'"></div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('ol#available-pages li').on( "click", function() {
+            document.dispatchEvent(new CustomEvent("freestream.parallax.backend.newPageSelected", {
+                detail: {
+                    element: $(this).clone().detach(),
+                    tracker: $('#button_tracker').val(),
+                },
+                bubbles: false,
+                cancelable: false
+            }));
+
+            $('#parallax-available-dismiss').click();
+        });
+    </script>
+    <div class="modal-footer">
+        <button
+            id="parallax-available-dismiss"
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            <?= e(trans('backend::lang.form.cancel')) ?>
+        </button>
+    </div>
+<?= Form::close() ?>

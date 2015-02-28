@@ -1,0 +1,28 @@
+{
+    "name": "andradedev/simple-subscribe",
+    "type": "october-plugin",
+    "description": "A simple Subscribe form for October CMS",
+    "keywords": ["october", "cms", "simple", "subscribe", "Jorge", "Andrade", "andradedev"],
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Jorge Andrade",
+            "email": "j.andrade.dev@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "JorgeAndrade\\Subscribe\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

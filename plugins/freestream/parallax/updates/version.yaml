@@ -1,0 +1,28 @@
+1.0.1:
+    - First version of Parallax
+    - 2014_08_010_000001_Db_create_parallaxes_table.php
+1.0.2:
+    - Code cleanup
+    - Removed bug when loading a missing parallax.
+    - Removed bug when adding a parallax with a slide as the current page.
+1.0.3:
+    - Removed unnecessary includes of js.
+    - Markup fixes for backends page selector.
+    - Markup fixes for frontend anchors.
+    - Removed possibility to include pages with an attached parallax component.
+1.0.4:
+    - Markup and JavaScript fixes for backends page selector.
+1.0.5:
+    - Major bugfix of page selector.
+    - Added support for system user permissions.
+    - Added language support and a swedish translation of the plugin.
+1.0.6:
+    - Implements a brand new page selector to make it responsive friendly.
+1.0.7:
+    - Code cleanup
+1.0.8:
+    - Markup and JavaScript cleanup
+1.0.9:
+    - Bugfix of anchors. Replaces slashes with dash.
+1.0.10:
+    - Removed debug row.

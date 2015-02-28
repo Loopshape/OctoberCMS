@@ -1,0 +1,22 @@
+{
+    "name": "october/loopshape-theme",
+    "type": "october-theme",
+    "description": "Loopshape / Portfolio",
+    "keywords": ["loopshape", "cms", "webdevelopment", "mediadesign"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arjuna Noorsanto",
+            "email": "awebgo.net@gmail.com",
+            "role": "ThemeCreator"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

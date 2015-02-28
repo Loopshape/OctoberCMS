@@ -1,0 +1,27 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+  template_id:
+    type: OctoDevel\OctoMail\FormWidgets\TemplateData
+    span: left
+    label: octodevel.octomail::lang.models.log.fields.label.template_id
+
+  sender_agent:
+    type: OctoDevel\OctoMail\FormWidgets\UserAgent
+    span: right
+    label: octodevel.octomail::lang.models.log.fields.label.sender_agent
+
+  sender_ip:
+    span: left
+    label: octodevel.octomail::lang.models.log.fields.label.sender_ip
+
+  sent_at:
+    span: right
+    label: octodevel.octomail::lang.models.log.fields.label.sent_at
+
+  data:
+    type: OctoDevel\OctoMail\FormWidgets\JsonRender
+    span: left
+    label: octodevel.octomail::lang.models.log.fields.label.data

@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Room
+
+# Model Form Field configuration
+form: @/plugins/tiipiik/booking/models/room/fields.yaml
+
+# Model Class name
+modelClass: Tiipiik\Booking\Models\Room
+
+# Default redirect location
+defaultRedirect: tiipiik/booking/rooms
+
+# Create page
+create:
+    title: Create Rooms
+    redirect: tiipiik/booking/rooms/update/:id
+    redirectClose: tiipiik/booking/rooms
+
+# Update page
+update:
+    title: Edit Rooms
+    redirect: tiipiik/booking/rooms
+    redirectClose: tiipiik/booking/rooms

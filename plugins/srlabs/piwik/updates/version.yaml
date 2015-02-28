@@ -1,0 +1,2 @@
+1.0.1: First version of piwik
+1.0.2: Make 'tracker_domain' and 'site_id' required fields.

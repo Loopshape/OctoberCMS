@@ -1,0 +1,19 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('raviraj/rjsliders/sliders') ?>"><?= e(trans('raviraj.rjsliders::lang.create.sliders')); ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="layout-item stretch layout-column form-preview">
+        <?= $this->formRenderPreview() ?>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('raviraj/rjsliders/sliders') ?>" class="btn btn-default"><?= e(trans('raviraj.rjsliders::lang.create.return')); ?></a></p>
+
+<?php endif ?>

@@ -1,0 +1,10 @@
+1.0.1:
+  - First version of FantasticFaq
+1.0.2:
+  - Create FaqGroups and Questions tables
+  - create_faq_groups_table.php
+  - create_questions_table.php
+1.0.3:
+  - Updated Plugin Menu to have active class
+1.0.4:
+  - Updated backend menu icon

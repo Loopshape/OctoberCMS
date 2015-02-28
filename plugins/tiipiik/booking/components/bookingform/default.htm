@@ -1,0 +1,108 @@
+<script type="text/javascript">
+var bookedDates = {};
+bookedDates = {{ booked_dates|raw }};
+</script>
+
+<form
+    data-request="onBooking">
+
+    <fieldset>
+        <legend>{{ 'You'|_ }}</legend>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                    <label for="userBookingName">{{ 'Name'|_ }}*</label>
+                    <input name="name" type="text" class="form-control" id="userBookingName" placeholder="Enter your name and first name">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                    <label for="userBookingEmail">{{ 'Email'|_ }}*</label>
+                    <input name="email" type="email" class="form-control" id="userBookingEmail" placeholder="Enter your email">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                    <label for="userBookingPhone">{{ 'Phone'|_ }}*</label>
+                    <input name="phone" type="tel" class="form-control" id="userBookingPhone" placeholder="Enter your phone number">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+        
+    <fieldset>
+        <legend>{{ 'Your visit'|_ }}</legend>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="userBookingName">{{ 'Persons'|_ }}*</label>
+                            <input name="persons" type="number" class="form-control" id="userBookingPersons" placeholder="How many people ?">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="userBookingEmail">{{ 'Rooms'|_ }}*</label>
+                            <input name="rooms" type="number" class="form-control" id="userBookingRooms" placeholder="How many rooms do you need ?">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="userBookingArrival">{{ 'Arrival'|_ }}*</label>
+                            <div class="input-group">
+                                <input name="arrival" type="text" class="form-control" id="userBookingArrival" data-date="{{"now"|date('Y-m-d')}}" data-date-format="dd-mm-yyyy" placeholder="Arrival date">
+                                <span class="input-group-addon"><i class="icon-th"></i></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="userBookingDeparture">{{ 'Departure'|_ }}*</label>
+                            <div class="input-group">
+                                <input name="departure" type="text" class="form-control" id="userBookingDeparture" data-date="{{"now"|date('Y-m-d')}}" data-date-format="dd-mm-yyyy" placeholder="Departure date">
+                                <span class="input-group-addon"><i class="icon-th"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" id="totalNights">
+                        <p class="bg-success hide" style="padding:10px 15px;"><span class="total">0</span> {{ 'night'|_ }}<span class="plural"></span> {{ 'to book'|_ }}</p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="userBookingPay">{{ 'How do you plan to pay ?'|_ }}</label>
+                            <select name="pay_plan" class="form-control" id="userBookingPay">
+                                <option value="none">Select one</option>
+                                {% for payplan in payplans %}
+                                    <option value="{{ payplan.id }}">{{ payplan.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div data-date="{{"now"|date('Y-m-d')}}" data-date-format="yyyy-mm-dd" id="showAvailableDates">
+                    <input type="text" value="{{"now"|date('Y-m-d')}}" readonly="readonly" class="hide">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <div class="form-group">
+            <label for="userBookingComment">{{ 'Comment'|_ }}</label>
+            <textarea name="comment" class="form-control" id="userBookingComment" placeholder="Want to give more informations ?"></textarea>
+        </div>
+    </fieldset>
+    <input type="hidden" name="room_id" value="{{ room.id }}">
+    <button type="submit" class="btn btn-primary">{{ 'Book'|_ }}</button>
+</form>

@@ -1,0 +1,37 @@
+# ===================================
+#  Field Definitions
+# ===================================
+tabs:
+  fields:
+     title:
+        label: Title
+        required: true
+        tab: Details
+
+     description:
+        type: textarea
+        label: Description
+        tab: Details
+
+     progress_val:
+        tab: Process
+        type: ShahiemSeymor\Todo\FormWidgets\Range
+        label: Progress
+
+     priority:
+        type: balloon-selector
+        label: Priority
+        span: left
+        default: normal
+        tab: Process
+        options:
+          high: High
+          normal: Normal
+          low: Low
+
+     deadline:
+        label: Deadline
+        span: right
+        required: true
+        type: datepicker
+        tab: Process

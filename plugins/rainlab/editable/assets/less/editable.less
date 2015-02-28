@@ -1,0 +1,55 @@
+.control-editable {
+
+    display: none;
+    position: absolute;
+    text-align: right;
+    background: rgba(246,231,178,.1);
+    border: 2px dashed rgba(246,231,178,.5);
+    height: 20px;
+    width: 50px;
+    pointer-events: none;
+    z-index: 9000;
+
+    &.active, &.visible { display: block; }
+
+    &.active {
+        background: transparent;
+        border: none;
+    }
+
+    button {
+        pointer-events: auto;
+        border: none;
+        width: 26px !important;
+        height: 30px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background-size: 60px 30px;
+        text-indent: -9999px;
+        line-height: 0;
+        overflow: hidden;
+        border-radius: 1px;
+
+        &.editable-edit-button {
+            background-color: transparent;
+            background-image: url('../images/edit-icon.png');
+            &:hover { background-position: 100% 0; }
+        }
+        &.editable-save-button,
+        &.editable-cancel-button {
+            height: 26px;
+            background-color: #f0f0f0;
+            margin: 4px 2px;
+        }
+        &.editable-save-button {
+            background-image: url('../images/save-icon.png');
+            &:hover { background-position: 100% 0; }
+        }
+        &.editable-cancel-button {
+            margin-right: 4px;
+            background-image: url('../images/cancel-icon.png');
+            &:hover { background-position: 100% 0; }
+        }
+    }
+
+}

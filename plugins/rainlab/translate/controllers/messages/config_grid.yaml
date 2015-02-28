@@ -1,0 +1,18 @@
+# ===================================
+#  Grid Widget Configuration
+# ===================================
+
+#showHeader: false
+#disableToolbar: true
+allowInsert: false
+allowRemove: true
+toolbar:
+    buttons: grid_toolbar
+
+columns:
+    from:
+        title: From
+        readOnly: false
+    to:
+        title: To
+        readOnly: false

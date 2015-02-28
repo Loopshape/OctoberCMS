@@ -1,0 +1,23 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+  question:
+    label: Question
+    searchable: true
+
+    
+  created_at:
+    label: Created
+    type: date
+
+  updated_at:
+    label: Updated
+    type: date
+
+  votes:
+    label: Votes
+    searchable: false
+    select: (SELECT COUNT(1) FROM shahiemseymor_poll_votes WHERE poll_id = shahiemseymor_poll.id)

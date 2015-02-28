@@ -1,0 +1,33 @@
+{% for poll in lastestPoll %} 
+	<h4>{{ poll.question }}</h4>
+	{% if checkIfVote == 1 %}
+		{% partial __SELF__ ~ "::result" %}
+	{% else %}
+	<script>
+	$(window).on('ajaxErrorMessage', function(event, message)
+	{
+	    $('#errors').html(message);
+	    event.preventDefault();
+	})
+	</script>
+
+	<div id="errors"></div>
+	<form data-request="onPoll" 
+		  data-request-data="id: {{ poll['id'] }}"
+		  data-request-update="'{{ __SELF__ }}::result': '.confirm-container-{{ poll['id'] }}'"
+		  data-request-success="$('.form-{{ poll['id'] }}').hide(1000)">
+	    <div class="form-{{ poll['id'] }}">
+		   	{% for answer, key in lastestPollAnswers %}
+		   	 <div class="checkbox"><label for="{{ answer }}"><input id="{{ answer }}" type="radio" name="vote_answer" value="{{ answer }}" /> {{ key }}</label></div>
+			{% endfor %}
+			<button type="submit" class="btn btn-default">Vote</button>
+		</div>
+
+		<div class="confirm-container-{{ poll['id'] }}">
+		<!--This will contain the poll result -->
+		 </div>
+	</form>
+	<div id="result"></div>
+	{% endif %}
+{% endfor %}
+  

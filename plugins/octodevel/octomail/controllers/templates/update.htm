@@ -1,0 +1,23 @@
+<?php if (!$this->fatalError): ?>
+
+    <div class="layout fancy-layout">
+        <?= Form::open([
+            'class' => 'layout',
+            'data-change-monitor' => 'true',
+            'data-window-close-confirm' => e(trans('octodevel.octomail::lang.controllers.default.data_window_close_confirm')),
+            'id' => 'template-form'
+        ]) ?>
+            <?= $this->formRender() ?>
+
+        <?= Form::close() ?>
+    </div>
+
+<?php else: ?>
+    <div class="control-breadcrumb">
+        <?= Block::placeholder('breadcrumb') ?>
+    </div>
+    <div class="padded-container">
+        <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+        <p><a href="<?= Backend::url('octodevel/octomail/templates') ?>" class="btn btn-default"><?= e(trans('octodevel.octomail::lang.controllers.default.return_to_items')) ?></a></p>
+    </div>
+<?php endif ?>

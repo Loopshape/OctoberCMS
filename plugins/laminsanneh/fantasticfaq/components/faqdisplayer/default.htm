@@ -1,0 +1,18 @@
+<div class="panel-group" id="accordion">
+    {% for question in __SELF__.selectedFaqGroup().questions %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{question.id}}">
+                        {{question.title}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{question.id}}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{question.body}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

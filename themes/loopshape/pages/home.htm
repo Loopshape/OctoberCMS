@@ -1,0 +1,40 @@
+title = "Home"
+url = "/"
+layout = "Global"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = "0"
+categoryPage = "blog/summary"
+==
+<section id="colMain" class="large-12 columns">
+
+    <div class="inner">
+    
+        <div class="headline">
+            <div class="large-6 columns">
+                <h2>// <a href="/" class="noDeco">HOME</a></h2>
+            </div>
+            {% partial 'module/weathercast' %}
+            <div id="network" class="large-4 columns">
+                {% component 'plusOne' %}<br />
+                {% component 'fblike' %}
+            </div>
+        </div>
+    
+        <div class="colWrapper alignLeft marginBottom">
+            <div id="pageTeaser">
+                {% partial 'module/start' %}
+            </div>
+        </div>
+        
+    </div>
+    
+</section>

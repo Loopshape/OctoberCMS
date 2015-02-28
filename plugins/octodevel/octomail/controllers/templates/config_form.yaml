@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: octodevel.octomail::lang.controllers.templates.config_form.name
+form: @/plugins/octodevel/octomail/models/template/fields.yaml
+modelClass: OctoDevel\OctoMail\Models\Template
+defaultRedirect: octodevel/octomail/templates
+
+create:
+    redirect: octodevel/octomail/templates/update/:id
+    redirectClose: octodevel/octomail/templates
+
+update:
+    redirect: octodevel/octomail/templates
+    redirectClose: octodevel/octomail/templates

@@ -1,0 +1,28 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+  title:
+    label: Title
+    searchable: true
+
+  description:
+    label: Description
+
+  tasks:
+    label: Tasks
+    type: number
+    select: (SELECT COUNT(1) FROM shahiemseymor_todo WHERE project_id = shahiemseymor_todo_projects.id)
+
+  creator:
+        label: Creator
+        relation: project
+        select: @login
+
+  created_at:
+    label: Created at
+
+  updated_at:
+    label: Updated at

@@ -1,0 +1,11 @@
+/* october.css has .control-toolbar{font-size:0} to fix white space issues. This breaks modals, so present a working size */
+.modal .modal-content {font-size:12px;}
+.fright {float:right;}
+
+#itemTreeList .trash {margin-left:5px;}
+#itemTreeList .item a.move:before {content:"\f0ac";} /* fa-globe */
+#itemTreeList .item.page a.move:before {content:"\f0c5";} /* icon-copy */
+#itemTreeList .item.partial a.move:before {content:"\f02c";} /* icon-tags */
+#itemTreeList .item.link a.move:before {content:"\f0c1";} /* fa-file-link */
+#itemTreeList .item.blog_post a.move:before {content:"\f040";} /* fa-pencil */
+#itemTreeList .item.blog_category a.move:before {content:"\f115";} /* fa-folder-open-o */

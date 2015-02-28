@@ -1,0 +1,13 @@
+phpmyadmin
+
+node_modules
+bower_components
+vendor
+
+public/piwik
+
+app/config
+
+loopcode/config
+
+themes/loopshape/bower_components

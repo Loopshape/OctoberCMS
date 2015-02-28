@@ -1,0 +1,54 @@
+<?php Block::put('breadcrumb') ?>
+	<ul>
+		<li><a href="<?= Backend::url('flynsarmy/menu/menus') ?>">Menus</a></li>
+		<li><?= e(trans($this->pageTitle)) ?></li>
+	</ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+	<script>
+		jQuery.fn.setCreateFormSessionKey = function() {
+			$(this).closest('FORM').data('request-data', { _session_key: $('#persistedSessionKey').val() });
+		}
+	</script>
+
+	<?= Form::open(['class'=>'layout-item stretch layout-column']) ?>
+
+		<input type="hidden" name="persisted_session_key" id="persistedSessionKey" value="<?= $this->formGetSessionKey() ?>" />
+
+		<?= $this->formRender() ?>
+
+		<div class="form-buttons layout-item fix">
+			<div class="loading-indicator-container">
+				<button
+					type="submit"
+					data-request="onSave"
+					data-hotkey="ctrl+s, cmd+s"
+					data-load-indicator="Creating Menu..."
+					class="btn btn-primary">
+					Create
+				</button>
+				<button
+					type="button"
+					data-request="onSave"
+					data-request-data="close:1"
+					data-hotkey="ctrl+s, cmd+s"
+					data-load-indicator="Creating Menu..."
+					class="btn btn-default">
+					Create and Close
+				</button>
+				<span class="btn-text">
+					or <a href="<?= Backend::url('flynsarmy/menu/menus') ?>">Cancel</a>
+				</span>
+			</div>
+		</div>
+
+	<?= Form::close() ?>
+
+<?php else: ?>
+
+	<p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+	<p><a href="<?= Backend::url('flynsarmy/menu/menus') ?>" class="btn btn-default">Return to menu list</a></p>
+
+<?php endif ?>

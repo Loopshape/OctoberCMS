@@ -1,0 +1,19 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    api_key:
+        label: ndcisiv.disposableemailblocker::lang.disposablesettings.api_key
+        commentAbove: ndcisiv.disposableemailblocker::lang.disposablesettings.api_key_comment
+    notification_email:
+        label: ndcisiv.disposableemailblocker::lang.disposablesettings.notification_email
+        commentAbove: ndcisiv.disposableemailblocker::lang.disposablesettings.notification_email_comment
+    receive_notification_emails:
+        label: ndcisiv.disposableemailblocker::lang.disposablesettings.receive_notification_emails
+        commentAbove: ndcisiv.disposableemailblocker::lang.disposablesettings.receive_notification_emails_comment
+        type: checkbox
+    plugin_enabled:
+        label: ndcisiv.disposableemailblocker::lang.disposablesettings.plugin_enabled
+        commentAbove: ndcisiv.disposableemailblocker::lang.disposablesettings.plugin_enabled_comment
+        type: checkbox

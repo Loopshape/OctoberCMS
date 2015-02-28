@@ -1,0 +1,73 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('shahiemseymor/todo/projects') ?>">Projects</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+
+<?php if (!$this->fatalError): ?>
+
+    <?php Block::put('form-contents') ?>
+    <?php
+    if($user_id == $myId)
+    {
+        echo Form::open(['class'=>'layout-item stretch layout-column']);
+        echo $this->formRender();
+        echo Form::close();
+    }
+
+    if($user_id == $myId || $isAssigned == 1)
+    {
+        echo $this->relationRender('todo');
+    }
+
+    if($user_id == $myId)
+    {
+        ?>
+        <div class="form-buttons layout-item fix">
+            <div class="loading-indicator-container">
+                <button 
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s"
+                    data-hotkey-mac="cmd+s"
+                    data-load-indicator="Saving Project..."
+                    class="btn btn-primary">
+                    <u>S</u>ave
+                </button>
+                <button 
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter"
+                    data-hotkey-mac="cmd+enter"
+                    data-load-indicator="Saving Project..."
+                    class="btn btn-default">
+                    Save and Close
+                </button>
+                <span class="btn-text">
+                    or <a href="<?= Backend::url('shahiemseymor/todo/projects') ?>">Cancel</a>
+                </span>
+                <button
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Deleting Project..."
+                    data-request-confirm="Do you really want to delete this project?">
+                </button> 
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+
+<?php else: ?>
+    <div class="padded-container">
+        <div class="control-breadcrumb">
+            <?= Block::placeholder('breadcrumb') ?>
+        </div>
+        <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+        <p><a href="<?= Backend::url('shahiemseymor/todo/projects') ?>" class="btn btn-default">Return to Projects list</a></p>
+    </div>
+<?php endif ?>

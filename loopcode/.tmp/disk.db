@@ -1,0 +1,196 @@
+{
+  "data": {
+    "accesstoken": [],
+    "authcode": [],
+    "client": [
+      {
+        "name": "testClient",
+        "clientSecret": "123test",
+        "redirectURI": "http://127.0.0.1:1337/testCallback",
+        "text": "just a test client",
+        "createdAt": "2015-02-27T21:44:13.162Z",
+        "updatedAt": "2015-02-27T21:44:13.163Z",
+        "id": 1
+      }
+    ],
+    "refreshtoken": [],
+    "token": [],
+    "user": [
+      {
+        "name": "testUser",
+        "password": "password",
+        "email": "test@example.com",
+        "createdAt": "2015-02-27T21:44:13.167Z",
+        "updatedAt": "2015-02-27T21:44:13.167Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "accesstoken": {
+      "userId": {
+        "type": "string"
+      },
+      "clientId": {
+        "type": "string"
+      },
+      "token": {
+        "type": "string"
+      },
+      "scope": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "authcode": {
+      "code": {
+        "type": "string"
+      },
+      "clientId": {
+        "type": "integer"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "redirectURI": {
+        "type": "string"
+      },
+      "scope": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "client": {
+      "name": {
+        "type": "string"
+      },
+      "clientSecret": {
+        "type": "string"
+      },
+      "redirectURI": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "refreshtoken": {
+      "userId": {
+        "type": "string"
+      },
+      "clientId": {
+        "type": "string"
+      },
+      "token": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "token": {
+      "token": {
+        "type": "string"
+      },
+      "userId": {
+        "type": "integer"
+      },
+      "clientId": {
+        "type": "integer"
+      },
+      "scope": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "name": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "accesstoken": {},
+    "authcode": {},
+    "client": {
+      "id": 1
+    },
+    "refreshtoken": {},
+    "token": {},
+    "user": {
+      "id": 1
+    }
+  }
+}

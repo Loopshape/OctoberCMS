@@ -1,0 +1,65 @@
+<?php
+/**
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Anton Samuelsson
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+?>
+<?= $this->makeHintPartial('freestream_parallax_howto_hint', 'hint') ?>
+<div class="col-sm-12 parallax">
+    <ol id="parallax-pages" class="page_selector">
+        <?php foreach ($this->getSelectedPagesInHierarchy() as $parent): ?>
+            <li class="pages-level-1" data-pagename="<?php echo $parent['pagename']; ?>">
+                <button type="button" class="close" data-dismiss="callout" aria-hidden="true">×</button>
+                <span class="page-heading">
+                    <?php echo $parent['title']; ?>
+                </span>
+                <ol>
+                    <?php foreach ($parent['children'] as $child): ?>
+                        <li class="pages-level-2" data-pagename="<?php echo $child['pagename']; ?>">
+                            <button type="button" class="close" data-dismiss="callout" aria-hidden="true">×</button>
+                            <span class="page-heading">
+                                <?php echo $child['title']; ?>
+                            </span>
+                            <ol></ol>
+                            <?php $buttonId = uniqid() ?>
+                            <div class="btn btn-primary oc-icon-plus" id="<?php echo $buttonId ?>" data-control="popup" data-handler="onOpenAvailablePages" data-request-data="button_id: '<?php echo $buttonId ?>'"></div>
+                        </li>
+                    <?php endforeach; ?>
+                </ol>
+                <?php $buttonId = uniqid() ?>
+                <div class="btn btn-primary oc-icon-plus" id="<?php echo $buttonId ?>" data-control="popup" data-handler="onOpenAvailablePages" data-request-data="button_id: '<?php echo $buttonId ?>'">
+                    <?= e(trans('freestream.parallax::lang.controllers.parallax.horizontal_label')) ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+    <?php $buttonId = uniqid() ?>
+    <div class="btn btn-primary oc-icon-plus" id="<?php echo $buttonId ?>" data-control="popup" data-handler="onOpenAvailablePages" data-request-data="button_id: '<?php echo $buttonId ?>'">
+        <?= e(trans('freestream.parallax::lang.controllers.parallax.vertical_label')) ?>
+    </div>
+</div>
+<script type="text/javascript">
+    var freestreamParallax = new FreestreamParallax({
+        horizontal_button_text: "<?= e(trans('freestream.parallax::lang.controllers.parallax.horizontal_label')) ?>",
+        vertical_button_text: "<?= e(trans('freestream.parallax::lang.controllers.parallax.vertical_label')) ?>",
+    });
+</script>

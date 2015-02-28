@@ -1,0 +1,14 @@
+<ul>
+    {% for favorite in favorites %}
+        <li>
+            <p class="text">{{ favorite.text_processed|raw }}</p>
+            <p class="author">
+                <img src="{{ favorite.user.profile_image_url_https }}"/>
+                <span class="name">{{ favorite.user.name }}</span>
+                <span class="screen_name">
+                    <a href="{{ 'http://twitter.com/'~favorite.user.screen_name }}">{{ favorite.user.screen_name }}</a>
+                </span>
+            </p>
+        </li>
+    {% endfor %}
+</ul>

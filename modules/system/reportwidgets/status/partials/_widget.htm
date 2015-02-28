@@ -1,0 +1,29 @@
+<div class="report-widget">
+    <h3><?= e(trans($this->property('title'))) ?></h3>
+
+    <?php if (!isset($error)): ?>
+        <ul class="status-list">
+            <li>
+                <a href="<?= Backend::url('system/settings/update/october/cms/maintenance_settings') ?>">
+                    <?php if ($inMaintenance): ?>
+                        <span class="status circle warning"></span>
+                        <?= e(trans('backend::lang.dashboard.status.maintenance')) ?>
+                    <?php else: ?>
+                        <span class="status circle success"></span>
+                        <?= e(trans('backend::lang.dashboard.status.online')) ?>
+                    <?php endif ?>
+                </a>
+            </li>
+            <?php if ($showUpdates): ?>
+                <li>
+                    <a href="<?= Backend::url('system/updates') ?>">
+                        <span class="status primary"><?= $updates ?></span>
+                        <?= e(trans_choice('backend::lang.dashboard.status.update_available', $updates)) ?>
+                    </a>
+                </li>
+            <?php endif ?>
+        </ul>
+    <?php else: ?>
+        <p class="flash-message static warning"><?= e($error) ?></p>
+    <?php endif ?>
+</div>

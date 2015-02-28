@@ -1,0 +1,15 @@
+subject = "Demo Template :: {{ subject }}"
+==
+Hello {{ sender_name }},
+An user sent you a message from website.
+Name: {{ name }}
+Email: {{ email }}
+Phone: {{ phone }}
+Message: {{ body|raw }}
+==
+<p>Hello {{ sender_name }},</p>
+<p>An user sent you a message from website.</p>
+Name: {{ name }}<br />
+Email: {{ email }}<br />
+Phone: {{ phone }}
+<p>Message:</p> {{ body|raw }}

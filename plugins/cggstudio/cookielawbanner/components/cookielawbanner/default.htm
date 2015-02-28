@@ -1,0 +1,59 @@
+
+
+<div id="hidden-cookie-message" style="display:none;">
+    <div>
+        <h4 id="cookie-law-H4"> {{cookielawbanner.title}}</h4>
+        <p id="cookie-law-p">{{cookielawbanner.message}}</p>
+        <a class="enlace" href="{{cookielawbanner.link}}">{{cookielawbanner.Textlink}}</a>
+        <a class="close-cookie-banner" href="javascript:void(0);" onclick="$(this).parent().parent().hide();"><span>Close</span></a>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var dropCookie = true;
+        var cookieDuration = '{{cookielawbanner.duration}}';
+        var cookieName = 'complianceCookie';
+        var cookieValue = 'on';
+        var privacyMessage = "";
+        var active = '{{cookielawbanner.active}}'
+        var developer ='{{cookielawbanner.developer}}'
+        privacyMessage = $('#hidden-cookie-message').html();
+
+        if (active == "1") {
+                if (developer == "1") {
+                    eraseCookie('complianceCookie');
+                 }
+
+                if (checkCookie(cookieName) != cookieValue) {
+                    createDiv(active, privacyMessage,cookieName,cookieValue,cookieDuration);
+                    window.setTimeout(function () {
+                        $('#cookie-law').fadeOut();
+                    }, {{cookielawbanner.time}}
+            )
+                ;
+            }
+        }else{
+            eraseCookie('complianceCookie');
+        }
+});
+</script>
+
+<style>
+    #cookie-law > div {
+    background: {{cookielawbanner.backgroundColor}}!important;
+    }
+
+
+    #cookie-law-p{
+    color: {{cookielawbanner.textColor}}!important;
+    }
+
+
+    #cookie-law-H4{
+    color: {{cookielawbanner.textColor}}!important;
+    }
+</style>
+
+

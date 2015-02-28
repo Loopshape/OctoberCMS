@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: FaqGroup
+
+# Model Form Field configuration
+form: @/plugins/laminsanneh/fantasticfaq/models/faqgroup/fields.yaml
+
+# Model Class name
+modelClass: LaminSanneh\FantasticFaq\Models\FaqGroup
+
+# Default redirect location
+defaultRedirect: laminsanneh/fantasticfaq/faqgroups
+
+# Create page
+create:
+    title: Create FaqGroups
+    redirect: laminsanneh/fantasticfaq/faqgroups/update/:id
+    redirectClose: laminsanneh/fantasticfaq/faqgroups
+
+# Update page
+update:
+    title: Edit FaqGroups
+    redirect: laminsanneh/fantasticfaq/faqgroups
+    redirectClose: laminsanneh/fantasticfaq/faqgroups
+
+# Preview page
+preview:
+    title: Preview FaqGroups

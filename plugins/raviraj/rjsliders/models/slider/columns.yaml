@@ -1,0 +1,14 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: raviraj.rjsliders::lang.modeldata.name
+        searchable: true
+
+    created_at:
+        label: raviraj.rjsliders::lang.modeldata.created
+
+    updated_at:
+        label: raviraj.rjsliders::lang.modeldata.updated

@@ -1,0 +1,15 @@
+<div class="toolbar-widget <?= $cssClasses ?>" id="<?= $this->getId() ?>">
+    <div class="layout control-toolbar">
+        <!-- Control Panel -->
+        <div class="layout-cell toolbar-item">
+            <?= ($controlPanel) ?: '&nbsp;' ?>
+        </div>
+
+        <!-- List Search -->
+        <?php if ($search): ?>
+            <div class="layout-cell toolbar-item width-fix">
+                <?= $search ?>
+            </div>
+        <?php endif ?>
+    </div>
+</div>

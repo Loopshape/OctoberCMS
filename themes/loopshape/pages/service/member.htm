@@ -1,0 +1,48 @@
+title = "Memberarea"
+url = "/member"
+layout = "Raw"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+==
+<?php
+function onStart() {
+
+    $context = '';
+    
+    $this['output'] = $context;
+    
+}
+?>
+==
+<section id="colMain" class="large-12 columns">
+
+    <div class="inner">
+    
+        <div class="headline">
+            <div class="large-6 columns">
+                <h2>// <a href="/worktest" class="noDeco">MEMBERAREA</a></h2>
+            </div>
+        </div>
+    
+        <div class="colWrapper alignLeft marginBottom">
+            
+            <div class="large-12 columns">
+                
+                <div class="inner">
+                    
+                    {{ output }}
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</section>

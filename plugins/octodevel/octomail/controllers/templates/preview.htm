@@ -1,0 +1,17 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('octodevel/octomail/templates') ?>"><?= e(trans('octodevel.octomail::lang.controllers.templates.preview.menu_label')) ?></a></li>
+        <li><?= e(trans($this->pageTitle)) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="layout-item stretch layout-column">
+        <?= $this->formRenderPreview() ?>
+    </div>
+
+<?php else: ?>
+    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <p><a href="<?= Backend::url('octodevel/octomail/templates') ?>" class="btn btn-default"><?= e(trans('octodevel.octomail::lang.controllers.templates.create.return_to_items')) ?></a></p>
+<?php endif ?>

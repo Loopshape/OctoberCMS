@@ -1,0 +1,36 @@
+1.0.1:
+    - First version of Booking
+    - create_bookings_table.php
+    - create_rooms_table.php
+1.0.2:
+    - Improve datepicker dates
+    - Avoid booking negative dates in datepicker
+1.0.3:
+    - Fix bad placeholders names in the bookingForm component
+1.0.4:
+    - Plugin backend is now translatable
+1.0.5:
+    - Added Pay Plans to backend
+    - create_pay_plans_table.php
+1.0.6:
+    - Fully functionnal Pay Plans and are now set as relation
+    - convert_bookings_payplan_to_payplanid.php
+1.0.7:
+    - Added required plugin for Rainlab.Translate
+1.0.8:
+    - Fixes issue on displaying Bookings
+    - Add translatable to rooms and pay plans
+1.0.9:
+    - Fixes empty field passed to Carbon
+1.0.10:
+    - Remove Date type for datepickers input (Avoid a conflict with browsers which implements HTML5 data type input)
+1.0.11:
+    - Fixed bug from dates and bad fields seeds
+1.0.12:
+    - Fixed typo in Booking model that was runing an exception
+1.0.13:
+    - Removed sorting by Room in Bookings
+1.0.14:
+    - Display booked dates only if they are validated
+1.0.15:
+    - Fix little issue on room creation

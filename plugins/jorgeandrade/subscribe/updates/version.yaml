@@ -1,0 +1,12 @@
+1.0.1:
+    - Initialize plugin.
+    - create_subscribers_table.php
+1.0.2: Fixed data-request
+1.0.3:
+    - Added the status and code column to the subscribers table.
+    - create_subscribers_code.php
+    - create_subscribers_status.php
+    - Adding a unsubscribe form.
+1.0.4:
+    - fixed code update
+    - update_code_column_subscriber.php

@@ -1,0 +1,61 @@
+<nav class="navbar layout control-toolbar" id="layout-mainmenu" role="navigation">
+    <div class="layout-cell">
+        <div class="toolbar-item">
+            <div data-control="toolbar">
+                <a class="menu-toggle" href="javascript:;">
+                    <i class="icon-bars"></i>
+                    <?php
+                        $activeItem = BackendMenu::getActiveMainMenuItem();
+                        echo $activeItem ? e(trans($activeItem->label)) : 'CMS';
+                    ?>
+                </a>
+
+                <ul class="nav">
+                    <?php foreach (BackendMenu::listMainMenuItems() as $item): ?>
+                        <li class="<?= BackendMenu::isMainMenuItemActive($item) ? 'active' : null ?>">
+                            <a href="<?= $item->url ?>">
+                                <i class="<?= $item->icon ?>"></i><?= e(trans($item->label)) ?>
+                            </a>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="layout-cell width-fix">
+        <ul>
+            <?php 
+                /* @todo Context help system 
+                    <li class="icon"><a href="#"><i class="icon-question"></i></a></li>
+                */
+            ?>
+            <li class="icon preview">
+                <a
+                    href="<?= URL::to('/') ?>"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="<?= e(trans('backend::lang.tooltips.preview_website')) ?>">
+                    <i class="icon-crosshairs"></i>
+                </a>
+            </li>
+            <li class="highlight account">
+                <a href="<?= Backend::url('system/settings/mysettings') ?>">
+                    <img src="<?= $this->user->getAvatarThumb() ?>">
+                    <span class="hidden-xs">
+                        <?= e($this->user->first_name.' '.$this->user->last_name) ?>
+                    </span>
+                </a>
+            </li>
+            <li class="icon power-off">
+                <a
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    href="<?= Backend::url('backend/auth/signout') ?>"
+                    title="<?= e(trans('backend::lang.account.sign_out')) ?>">
+                    <i class="icon-power-off"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

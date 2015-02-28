@@ -1,0 +1,12 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: octodevel.octomail::lang.models.recipient.columns.name
+        searchable: true
+    email:
+        label: octodevel.octomail::lang.models.recipient.columns.email
+        searchable: true

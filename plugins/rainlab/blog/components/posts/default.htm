@@ -1,0 +1,44 @@
+{% set posts = __SELF__.posts %}
+
+<ul class="post-list">
+    {% for post in posts %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+            <p class="info">
+                Eingetragen  
+                {% if post.categories.count %} unter {% endif %}
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                am {{ post.published_at|date('d-m-Y') }}
+            </p>
+
+            {% if post.excerpt %}
+                <p class="excerpt">{{ post.excerpt }}</p>
+            {% else %}
+                <div class="content">{{ post.content_html|raw }}</div>
+            {% endif %}
+        </li>
+    {% else %}
+        <li class="no-data">{{ noPostsMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% if posts.getLastPage > 1 %}
+    <ul class="pagination">
+        {% if posts.getCurrentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.getCurrentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..posts.getLastPage %}
+            <li class="{{ posts.getCurrentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if posts.getLastPage > posts.getCurrentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.getCurrentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

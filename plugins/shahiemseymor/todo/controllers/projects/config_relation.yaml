@@ -1,0 +1,8 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+todo:
+    label: Task
+    list: @/plugins/shahiemseymor/todo/models/todo/columns.yaml
+    form: @/plugins/shahiemseymor/todo/models/todo/fields.yaml
+    emptyMessage: backend::lang.list.no_records

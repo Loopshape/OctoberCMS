@@ -1,0 +1,68 @@
+columns:
+    id:
+        label: tiipiik.booking::lang.booking.backend.columns.id
+        invisible: true
+        
+    name:
+        label: tiipiik.booking::lang.booking.backend.columns.room_name
+        relation: Room
+        select: name
+        sortable: false
+        
+    full_name:
+        label: tiipiik.booking::lang.booking.backend.columns.customer_name
+        
+    email:
+        label: tiipiik.booking::lang.booking.backend.columns.customer_email
+        
+    phone:
+        label: tiipiik.booking::lang.booking.backend.columns.customer_phone
+        
+    persons:
+        label: tiipiik.booking::lang.booking.backend.columns.persons
+        invisible: true
+        
+    rooms:
+        label: tiipiik.booking::lang.booking.backend.columns.rooms
+        invisible: true
+        
+    arrival:
+        label: tiipiik.booking::lang.booking.backend.columns.checkin
+        
+    departure:
+        label: tiipiik.booking::lang.booking.backend.columns.checkout
+        
+    total_days:
+        label: tiipiik.booking::lang.booking.backend.columns.total_days
+        invisible: true
+        
+    total_nights:
+        label: tiipiik.booking::lang.booking.backend.columns.total_nights
+        invisible: true
+        
+    amount:
+        label: tiipiik.booking::lang.booking.amount
+        invisible: true
+        
+    currency:
+        label: tiipiik.booking::lang.booking.currency
+        invisible: true
+        
+    pay_plan:
+        label: tiipiik.booking::lang.booking.backend.columns.pay_plan
+        invisible: true
+        relation: PayPlan
+        select: @title
+        
+    comment:
+        label: tiipiik.booking::lang.booking.backend.columns.comment
+        invisible: true
+        
+    validated:
+        label: tiipiik.booking::lang.booking.validated
+        type: switch
+        
+    created_at:
+        label: tiipiik.booking::lang.booking.registered
+        type: datetime
+        invisible: true

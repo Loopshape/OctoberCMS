@@ -1,0 +1,17 @@
+<div class="container hashfeed">
+{% for rows in items.data|batch(3) %}
+    <div class="row hashfeed-row">
+
+        {% for item in rows %}
+
+        <div class="col-md-4 hashfeed-item"><a href="{{ item.link }}"><img src="{{ item.images.thumbnail.url }}"></a></div>
+
+        {% endfor %}
+
+    </div>
+
+{% endfor %}
+
+</div>
+
+</div>

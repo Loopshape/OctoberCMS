@@ -1,0 +1,51 @@
+<input type="text" id="input-local" value="<?php echo $value; ?>" name="<?php echo $name; ?>" />
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#input-local").tokenInput([
+        <?php
+        foreach($users as $user)
+        {
+            if($user->id != $myID)
+            {
+                ?>
+                {
+                    id: <?php echo $user->id; ?>,
+                    name: "<?php echo $user->first_name; ?> <?php echo $user->last_name; ?> (<?php echo $user->login; ?>)"},
+                <?php
+            }
+        }
+        ?>],
+
+        {
+             preventDuplicates: true,
+
+                <?php
+                if(isset($projectAssign))
+                {
+                    ?>
+                    prePopulate: [
+                    <?php
+                    foreach($projectAssign->get() as $assign)
+                    {
+        
+                        if($assign->user_id != $myID)
+                        {
+                            ?>
+                            {
+                                id: <?php echo $assign->user_id; ?>, 
+                                name: "<?php echo $getInfo::find($assign->user_id)->first_name; ?> <?php echo $getInfo::find($assign->user_id)->last_name; ?> (<?php echo $getInfo::find($assign->user_id)->login; ?>)"
+                            },
+                            <?php
+                        }
+                       
+                    }
+                    ?>
+                    
+            ],
+                <?php
+             }
+            ?>
+        }
+    );
+});
+</script>

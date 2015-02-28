@@ -1,0 +1,22 @@
+.lnxScrollToTop {
+	border-radius: 10px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	position: fixed;
+	display: none;
+	opacity: 0.1;
+	transition-duration: 0;
+	-webkit-transition-duration: 0;
+	-moz-transition-duration: 0;
+	-o-transition-duration: 0;
+	z-index: 9999;
+	cursor: pointer;
+}
+.lnxScrollToTop:hover {
+	text-decoration: none;
+}
+.lnxScrollToTopArrow {
+	display: inline-block;
+}

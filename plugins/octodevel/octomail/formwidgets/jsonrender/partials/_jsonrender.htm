@@ -1,0 +1,12 @@
+<?php if ($this->previewMode): ?>
+    <div class="form-control">
+        <?php
+            if($value):
+                unset($value['ip_address'],$value['user_agent']);
+                foreach ($value as $key => $val):
+                    echo '<strong>' . ucfirst($key) . ':</strong> ' . $val . '<br />';
+                endforeach;
+            endif;
+        ?>
+    </div>
+<?php endif ?>

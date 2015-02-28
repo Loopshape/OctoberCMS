@@ -1,0 +1,24 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+  template_id:
+    label: octodevel.octomail::lang.models.log.columns.template_id
+    relation: template
+    select: @title
+    searchable: true
+
+  sender_ip:
+    label: octodevel.octomail::lang.models.log.columns.sender_ip
+    searchable: true
+
+  sent_at:
+    label: octodevel.octomail::lang.models.log.columns.sent_at
+    type: datetime
+    searchable: true
+
+  sender_agent:
+    label: octodevel.octomail::lang.models.log.columns.sender_agent
+    searchable: true

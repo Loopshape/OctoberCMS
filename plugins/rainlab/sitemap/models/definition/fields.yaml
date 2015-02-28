@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    stretch: true
+    cssClass: tabs-offset
+    fields:
+        items:
+            stretch: true
+            tab: Sitemap
+            type: RainLab\Sitemap\FormWidgets\SitemapItems

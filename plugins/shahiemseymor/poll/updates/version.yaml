@@ -1,0 +1,13 @@
+1.0.1:
+    - First version
+    - create_poll_table.php
+    - create_poll_votes_table.php
+1.0.2:
+    - Bug fixed (You can now display more than one poll on a page)
+1.0.3:
+    - Migration UP/DOWN table names bug fixed
+    - Added sidemenu
+    - Removed sidebar on the create page.
+1.0.4:
+    - Added delete button list view
+    - Added required fields

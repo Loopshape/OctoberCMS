@@ -1,0 +1,33 @@
+<form role="form" data-request="{{__SELF__}}::onOctoMailSent" data-request-update="'{{__SELF__}}::confirm': '.confirm-container'" data-request-success="$('.form-groups').slideUp(1000);$('.confirm-container').fadeIn(1000);">
+
+    <div class="form-groups">
+    
+        <div class="form-group">
+            <input type="text" class="form-control" value=""  name="name" placeholder="Namen eintragen">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" value="" name="email" placeholder="E-Mail angeben">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" value=""  name="phone" placeholder="Rufnummer durchgeben">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" value="" name="subject" placeholder="Anliegen beschreiben">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" value="" name="body" placeholder="Nachrichtentext schreiben..." cols="30" rows="10"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-lg pull-right">Senden</button>
+        
+    </div>
+
+    <div class="confirm-container hideMe">
+        {% if result == true %}
+            <p>
+                <strong>Deine Nachricht wurde erfolgreich versendet...</strong>
+            </p>
+        {% endif %}
+    </div>
+    
+</form>

@@ -1,0 +1,21 @@
+{
+  "name":        "qub/clockwork",
+  "description": "Clockwork Developer Tools integration plugin for OctoberCMS",
+  "homepage":    "http://octobercms.com",
+  "keywords":    [
+    "october",
+    "cms",
+    "qub",
+    "clockwork"
+  ],
+  "authors":     [
+    {
+      "name":  "Andriy Kuzyk",
+      "email": "askuzyk@gmail.com"
+    }
+  ],
+  "require":     {
+    "php":                 ">=5.4.0",
+    "itsgoingd/clockwork": "1.*"
+  }
+}

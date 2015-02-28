@@ -1,0 +1,4 @@
+0.0.1:
+    - First working release
+0.0.2:
+    - Added status code support (default 302)

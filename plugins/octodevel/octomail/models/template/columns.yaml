@@ -1,0 +1,25 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+  title:
+    label: octodevel.octomail::lang.models.templates.columns.title
+    searchable: true
+
+  slug:
+    label: octodevel.octomail::lang.models.templates.columns.slug
+    searchable: true
+
+  lang:
+    label: octodevel.octomail::lang.models.templates.columns.lang
+    searchable: false
+
+  created_at:
+    label: octodevel.octomail::lang.models.templates.columns.created_at
+    type: date
+
+  updated_at:
+    label: octodevel.octomail::lang.models.templates.columns.updated_at
+    type: date

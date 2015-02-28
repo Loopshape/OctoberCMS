@@ -1,0 +1,48 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('raviraj/rjsliders/sliders') ?>"><?= e(trans('raviraj.rjsliders::lang.create.sliders')); ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class'=>'layout-item stretch layout-column']) ?>
+
+        <?= $this->formRender() ?>
+        
+        <div class="form-buttons layout-item fix">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-hotkey="ctrl+s"
+                    data-hotkey-mac="cmd+s"
+                    data-load-indicator="<?= e(trans('raviraj.rjsliders::lang.create.creating')); ?>"
+                    class="btn btn-primary">
+                    <?= e(trans('raviraj.rjsliders::lang.create.create')); ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter"
+                    data-hotkey-mac="cmd+enter"
+                    data-load-indicator="<?= e(trans('raviraj.rjsliders::lang.create.creating')); ?>"
+                    class="btn btn-default">
+                    <?= e(trans('raviraj.rjsliders::lang.create.createclose')); ?>
+                </button>
+                <span class="btn-text">
+                    <?= e(trans('raviraj.rjsliders::lang.create.or')); ?> <a href="<?= Backend::url('raviraj/rjsliders/sliders') ?>"><?= e(trans('raviraj.rjsliders::lang.create.cancel')); ?></a>
+                </span>
+            </div>
+        </div>
+
+    <?= Form::close() ?>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('raviraj/rjsliders/sliders') ?>" class="btn btn-default"><?= e(trans('raviraj.rjsliders::lang.create.return')); ?></a></p>
+
+<?php endif ?>

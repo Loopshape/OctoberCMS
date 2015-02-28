@@ -1,0 +1,12 @@
+fields:
+  client_id:
+    span: left
+    label: Client ID
+
+  client_secret:
+    span: right
+    label: Client Secret
+
+  cache:
+    span: left
+    label: Cache (in minutes)

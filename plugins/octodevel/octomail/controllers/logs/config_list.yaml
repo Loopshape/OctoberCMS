@@ -1,0 +1,36 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: @/plugins/octodevel/octomail/models/log/columns.yaml
+
+# Model Class name
+modelClass: OctoDevel\OctoMail\Models\Log
+
+# List Title
+title: octodevel.octomail::lang.controllers.logs.config_list.title
+
+# Link URL for each record
+recordUrl: octodevel/octomail/logs/preview/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 25
+
+# Display checkboxes next to each record
+showCheckboxes: false
+
+# Default sorting column and direction when user preference is not defined.
+defaultSort: sent_at
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

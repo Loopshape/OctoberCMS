@@ -1,0 +1,15 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+title: Todo
+list: @/plugins/shahiemseymor/todo/models/todo/columns.yaml
+modelClass: ShahiemSeymor\Todo\Models\Todo
+recordUrl: shahiemseymor/todo/todo/update/:id
+noRecordsMessage: backend::lang.list.no_records
+recordsPerPage: 20
+showCheckboxes: yes
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: backend::lang.list.search_prompt

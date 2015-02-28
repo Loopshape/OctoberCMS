@@ -1,0 +1,17 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+   title:
+      label: Title
+      required: true
+
+   description:
+      type: textarea
+      label: Description
+
+   assign:
+      type: ShahiemSeymor\Todo\FormWidgets\Tokeninput
+      label: Assign to
+

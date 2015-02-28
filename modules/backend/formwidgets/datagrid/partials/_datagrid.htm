@@ -1,0 +1,14 @@
+<div
+    id="<?= $this->getId() ?>"
+    class="field-datagrid size-<?= $size ?>">
+
+    <?= $grid->render() ?>
+
+    <input
+        type="hidden"
+        id="<?= $this->getId('dataLocker') ?>"
+        name="<?= $name ?>"
+        value="<?= e($value) ?>"
+        />
+</div>
+

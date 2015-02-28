@@ -1,0 +1,45 @@
+<?= $this->makePartial('toolbar') ?>
+
+	<p><br/>Drag and nest the menu items using the icons on the left. Click a menu item to edit it.</p>
+	<div class="form-preview">
+		<div
+			id="itemTreeList"
+			class="control-treelist"
+			data-control="treelist"
+			data-handle="a.move"
+			data-stripe-load-indicator>
+			<ol id="reorderRecords">
+				<?php
+					if ( $value->count() ):
+						echo $this->makePartial('item_records', ['records' => $value]);
+					else:
+						?><li>There are no items yet.</li>
+				<?php
+					endif;
+				?>
+			</ol>
+		</div>
+	</div>
+<script>
+
+	/*
+	 * Post back source and target nodes IDs and the move positioning.
+	 */
+	$('#itemTreeList').on('move.oc.treelist', function(ev, data){
+		var
+			$el,
+			$item = data.item,
+			moveData = { sourceNode: $item.data('recordId'), position: 'root', targetNode: 0 }
+
+		if (($el = $item.next()) && $el.length) moveData.position = 'before'
+		else if (($el = $item.prev()) && $el.length) moveData.position = 'after'
+		else if (($el = $item.parents('li:first')) && $el.length) moveData.position = 'child'
+
+		if ($el.length) moveData.targetNode = $el.data('recordId')
+
+		$('#itemTreeList').request('<?= $this->getEventHandler('onMove') ?>', {
+			data: moveData
+		})
+	})
+
+</script>

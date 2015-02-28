@@ -1,0 +1,110 @@
+<?php
+use ShahiemSeymor\Poll\Models\Polls as Poll;
+use ShahiemSeymor\Poll\Models\Vote as Vote;
+?>
+
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('shahiemseymor/poll/polls') ?>">Poll</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+
+<?php if (!$this->fatalError): ?>
+
+    <?php Block::put('form-contents') ?>
+
+
+        <?= $this->formRenderOutsideFields() ?>
+        <?= $this->formRenderPrimaryTabs() ?>
+
+        <div class="form-buttons layout-item fix">
+            <div class="loading-indicator-container">
+                <button 
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s"
+                    data-hotkey-mac="cmd+s"
+                    data-load-indicator="Saving Poll..."
+                    class="btn btn-primary">
+                    <u>S</u>ave
+                </button>
+                <button 
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter"
+                    data-hotkey-mac="cmd+enter"
+                    data-load-indicator="Saving Poll..."
+                    class="btn btn-default">
+                    Save and Close
+                </button>
+                <span class="btn-text">
+                    or <a href="<?= Backend::url('shahiemseymor/poll/polls') ?>">Cancel</a>
+                </span>
+                <button
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Deleting Poll..."
+                    data-request-confirm="Do you really want to delete this poll?">
+                </button>
+            </div>
+        </div>
+
+    <?php Block::endPut() ?>
+
+    <?php Block::put('form-sidebar') ?>
+       <div class="scoreboard">
+         <div class="scoreboard-item control-chart pull-left" data-control="chart-bar">
+             <ul>
+                <?php
+                $colors = array(
+                    1 => 'FF0000', 
+                    2 => 'FF7777', 
+                    3 => '22CC22', 
+                    4 => '990055', 
+                    5 => 'A08060',
+                    6 => '0DEEEF', 
+                    7 => 'FFD700',
+                    8 => 'CC3830',
+                    9 => 'CD7010',
+                    10 => '886600',
+                 );
+                    
+                foreach(Poll::getLatestPollAnswers($this->params[0]) as $key => $answer)
+                    echo '<li data-color="#'.$colors[$key].'">
+                            '.$answer.' 
+                            <span>'.Vote::getPercentById($this->params[0], $key).'%</span> 
+                            ('.Vote::countVotesById($this->params[0], $key).' 
+                            vote'.(Vote::countVotesById($this->params[0], $key) == 1 ? '' : 's').')
+                        </li>';
+                ?>
+             </ul>
+         </div>
+         <div class="pull-right">
+            <div class="scoreboard-item title-value">
+                <h4>Votes</h4>
+                <p><?php echo Vote::countTotalVotesById($this->params[0]); ?></p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <?php Block::endPut() ?>
+
+    <?php Block::put('body') ?>
+        <?= Form::open(['class'=>'layout stretch']) ?>
+            <?= $this->makeLayout('form-with-sidebar') ?>
+        <?= Form::close() ?>
+    <?php Block::endPut() ?>
+
+<?php else: ?>
+    <div class="padded-container">
+        <div class="control-breadcrumb">
+            <?= Block::placeholder('breadcrumb') ?>
+        </div>
+        <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+        <p><a href="<?= Backend::url('shahiemseymor/poll/polls') ?>" class="btn btn-default">Return to Poll list</a></p>
+    </div>
+<?php endif ?>

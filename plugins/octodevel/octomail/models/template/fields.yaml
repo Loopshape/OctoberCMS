@@ -1,0 +1,140 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+  title:
+    label: octodevel.octomail::lang.models.templates.fields.label.title
+    span: left
+    placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.title
+
+  slug:
+    label: slug
+    span: right
+    placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.slug
+    attributes:
+      data-input-preset: 'input[name="Template[title]"]'
+      data-input-preset-type: slug
+      data-input-preset-closest-parent: form
+
+  toolbar:
+    type: partial
+    path: template_toolbar
+    cssClass: collapse-visible
+
+# tabs:
+#   fields:
+
+#     excerpt:
+#       tab: Details
+#       label: Excerpt
+#       type: textarea
+#       size: small
+
+secondaryTabs:
+  stretch: true
+  fields:
+    content_html:
+      tab: octodevel.octomail::lang.models.templates.fields.tab.edit
+      stretch: true
+      type: richeditor
+      size: giant
+
+    fields:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.fields
+       type: text
+       span: left
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.fields
+
+    autoresponse:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.autoresponse
+       type: dropdown
+       span: right
+       options:
+          1: octodevel.octomail::lang.models.default.fields.options.yes
+          0: octodevel.octomail::lang.models.default.fields.options.no
+
+    lang:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.lang
+       type: dropdown
+       default: en
+       options:
+           nl: Dutch
+           en: English
+           de: German
+           ja: Japanese
+           br: Portuguese (Brazilian)
+           pt: Portuguese
+           ru: Russian
+           sv: Swedish
+           tr: Turkish
+       span: left
+       size: small
+
+    subject:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.subject
+       type: text
+       span: right
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.subject
+
+    sender_name:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.sender_name
+       type: text
+       span: left
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.sender_name
+
+    sender_email:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.sender_email
+       type: text
+       span: right
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.sender_email
+
+    multiple_recipients:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.multiple_recipients
+       type: checkbox
+       span: left
+       options:
+        1:
+
+    recipents:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.recipents
+       type: relation
+       span: left
+       commentAbove: octodevel.octomail::lang.models.templates.fields.commentAbove.recipents
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.recipents
+
+    recipient_name:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.recipient_name
+       type: text
+       span: left
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.recipient_name
+
+    recipient_email:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.recipient_email
+       type: text
+       span: right
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.recipient_email
+
+    confirmation_text:
+       tab: octodevel.octomail::lang.models.templates.fields.tab.manage
+       label: octodevel.octomail::lang.models.templates.fields.label.confirmation_text
+       type: textarea
+       size: small
+       placeholder: octodevel.octomail::lang.models.templates.fields.placeholder.confirmation_text

@@ -1,0 +1,7 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name: rainlab.user::lang.state.name
+    code: rainlab.user::lang.state.code

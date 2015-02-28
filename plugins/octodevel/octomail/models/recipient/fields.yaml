@@ -1,0 +1,13 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+  name:
+    label: octodevel.octomail::lang.models.recipient.fields.label.name
+    span: left
+
+  email:
+    label: octodevel.octomail::lang.models.recipient.fields.label.email
+    span: right

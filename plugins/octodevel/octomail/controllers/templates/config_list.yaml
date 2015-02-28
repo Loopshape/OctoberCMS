@@ -1,0 +1,36 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: @/plugins/octodevel/octomail/models/template/columns.yaml
+
+# Model Class name
+modelClass: OctoDevel\OctoMail\Models\Template
+
+# List Title
+title: octodevel.octomail::lang.controllers.templates.config_list.title
+
+# Link URL for each record
+recordUrl: octodevel/octomail/templates/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 15
+
+# Display checkboxes next to each record
+showCheckboxes: true
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt
+
+
+

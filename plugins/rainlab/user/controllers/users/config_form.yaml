@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: rainlab.user::lang.user.label
+form: @/plugins/rainlab/user/models/user/fields.yaml
+modelClass: RainLab\User\Models\User
+defaultRedirect: rainlab/user/users
+
+create:
+    redirect: rainlab/user/users/update/:id
+    redirectClose: rainlab/user/users
+
+update:
+    redirect: rainlab/user/users
+    redirectClose: rainlab/user/users

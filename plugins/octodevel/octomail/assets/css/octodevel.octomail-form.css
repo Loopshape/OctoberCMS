@@ -1,0 +1,14 @@
+.fancy-layout .control-tabs > div.tab-content > div.tab-pane, .fancy-layout.control-tabs > div.tab-content > div.tab-pane {
+    padding: 15px;
+}
+.form-group.fullwidth{
+    width: 100%;
+}
+.trumbowyg-box, .editor {
+    width: 100%!important;
+    margin: 0px auto!important;
+}
+.trumbowyg-editor, .trumbowyg-textarea{
+    width: 100%!important;
+    padding: 10px!important;
+}

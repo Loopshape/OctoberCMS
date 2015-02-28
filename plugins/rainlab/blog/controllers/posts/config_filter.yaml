@@ -1,0 +1,29 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+scopes:
+
+    category:
+
+        # Filter name
+        label: rainlab.blog::lang.posts.category
+
+        # Model Class name
+        modelClass: RainLab\Blog\Models\Category
+
+        # Model attribute to display for the name
+        nameFrom: name
+
+        # Apply query scope
+        scope: FilterCategories
+
+    published:
+
+        # Filter name
+        label: rainlab.blog::lang.posts.hide_published
+
+        # Filter type
+        type: checkbox
+
+        # SQL Conditions
+        conditions: published <> 1
