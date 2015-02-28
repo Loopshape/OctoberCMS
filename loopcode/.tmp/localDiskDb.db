@@ -479,9 +479,23 @@
       {
         "username": "Loopshape",
         "password": "13676778lolsetg0",
+        "id": 34,
         "createdAt": "2015-02-28T00:59:28.302Z",
-        "updatedAt": "2015-02-28T00:59:28.302Z",
-        "id": 34
+        "updatedAt": "2015-02-28T00:59:28.302Z"
+      },
+      {
+        "username": "Loopshape",
+        "password": "6778",
+        "createdAt": "2015-02-28T01:18:38.485Z",
+        "updatedAt": "2015-02-28T01:18:38.485Z",
+        "id": 35
+      },
+      {
+        "username": "Loopshape",
+        "password": "6778",
+        "createdAt": "2015-02-28T01:21:13.281Z",
+        "updatedAt": "2015-02-28T01:21:13.281Z",
+        "id": 36
       }
     ]
   },
@@ -639,7 +653,7 @@
   },
   "counters": {
     "user": {
-      "id": 34
+      "id": 36
     },
     "accesstoken": {},
     "authcode": {},
