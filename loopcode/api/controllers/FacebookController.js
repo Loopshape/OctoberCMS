@@ -20,7 +20,10 @@ module.exports =
 			        return res.redirect('/');
 		        } else {
 			        req.session.user = user;
-			        return res.redirect('/member');
+			        return res.login(
+			        {
+			            successRedirect : '/member'
+			        });
 		        }
 	        });
         })(req, res, next);
@@ -30,7 +33,10 @@ module.exports =
     {
         passport.authenticate('facebook',
         function (req, res) {
-        	res.redirect('/member');
+        	return res.login(
+	        {
+	            successRedirect : '/member'
+	        });
         })(req, res, next);
     }
 };

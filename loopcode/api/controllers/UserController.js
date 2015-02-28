@@ -38,18 +38,16 @@ module.exports =
         {
             if (err)
                 return res.negotiate(err);
-            req.login(user, function(err)
-            {
-                if (err)
-                    return res.negotiate(err);
-                return res.redirect('/login');
-            });
+        	return res.login(
+	        {
+	            successRedirect : '/member'
+        	});
+
         });
     },
 
     remove : function(req, res)
-    { 
-    	error :'Feature in Arbeit...'
+    { error :'Feature in Arbeit...'
     }
 };
 
