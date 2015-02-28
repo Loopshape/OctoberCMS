@@ -26,12 +26,12 @@ module.exports =
     {
         req.logout();
         return res.redirect('/');
-        //res.ok('Logged out successfully.');
     },
 
     /**
      * `UserController.signup()`
      */
+
     signup : function(req, res)
     {
         User.create(req.params.all()).exec(function(err, user)
@@ -47,13 +47,9 @@ module.exports =
         });
     },
 
-    destroy : function(req, res)
-    {
-        User.destroy(req.params.all()).exec(function(err, user)
-        {
-            if (err)
-                return res.redirect('/login');
-        });
+    remove : function(req, res)
+    { 
+    	error :'Feature in Arbeit...'
     }
 };
 

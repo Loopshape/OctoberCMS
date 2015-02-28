@@ -8,4 +8,6 @@ module.exports.routes = {
   'post /signup': 'UserController.signup',
   '/logout': 'UserController.logout',
   
+  '/facebook': 'FacebookController.login',
+  
 };

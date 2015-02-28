@@ -8,6 +8,10 @@
 </p>
 
 <p>
+	<a href="http://loop.arcturus.uberspace.de:64321/deleteAccount" title="">Account l&ouml;schen!</a>
+</p>
+
+<p>
     <a class="clickButton" href="http://loop.arcturus.uberspace.de:64321/logout">Logout</a>
 
 </p>
@@ -19,6 +23,8 @@
 
 <% } else { %>
 
-<script>window.open('/', '_self');</script>
+<script>setTimeout(function() {
+	window.open('/', '_self');
+}, 250);</script>
 
 <% } %>

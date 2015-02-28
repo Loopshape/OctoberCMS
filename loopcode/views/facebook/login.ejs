@@ -1,0 +1,28 @@
+<h3>Benutzer-API von Loopshape:</h3>
+<% if (req.user) { %>
+<p>
+    <a href="http://loop.arcturus.uberspace.de:64321/member" title="">&Ouml;ffne das Benutzerportal</a>
+</p>
+<p>
+    You are logged in! Your id is <strong><%- req.user.id %></strong> and your Facebook Id is <strong><%- req.user.facebookId %></strong>
+</p>
+<p>
+    &nbsp;
+</p>
+<p>
+    <a class="clickButton" href="http://loop.arcturus.uberspace.de:64321/logout">Logout</a>
+</p>
+<% } else { %>
+<p>
+    <a class="clickButton" href="http://loop.arcturus.uberspace.de:64321/login">Login</a>
+</p>
+<p>
+    <a class="clickButton" href="http://loop.arcturus.uberspace.de:64321/facebook" title="">Facebook</a>
+</p>
+<p>
+    <a class="clickButton" href="http://loop.arcturus.uberspace.de:64321/signup">Signup</a>
+</p>
+<p>
+    <a href="http://loop.arcturus.uberspace.de/" title="">Zur&uuml;ck zur Startseite...</a>
+</p>
+<% } %>
