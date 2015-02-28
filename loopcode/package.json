@@ -26,6 +26,7 @@
     "oauth2orize": "^1.0.1",
     "passport": "^0.2.0",
     "passport-facebook": "^1.0.3",
+    "passport-github": "^0.1.5",
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^0.1.5",
     "passport-google-plus": "^0.5.1",
@@ -37,6 +38,7 @@
     "rc": "^0.5.5",
     "sails": "^0.10.5",
     "sails-disk": "^0.10.7",
+    "sails-mongo": "^0.10.5",
     "sails-mysql": "^0.10.11"
   },
   "scripts": {
